@@ -13,7 +13,7 @@
       font-family: 'Pretendard', -apple-system, sans-serif;
       color: #334155;
       padding-top: 70px;
-      padding-bottom: 40px;
+      padding-bottom: 60px;
       perspective: 1000px;
     }
 
@@ -91,7 +91,7 @@
     .info-val { color: #1e293b; font-weight: 500; }
     .dday-badge { background: #e0f2fe; color: #0284c7; font-weight: 800; padding: 2px 6px; border-radius: 8px; font-size: 11px; margin-left: 6px; }
 
-    /* 📌 링크 버튼 */
+    /* 📌 링크 버튼 (SOOP, 트위터만 유지) */
     .link-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
     .link-btn {
       padding: 10px 18px; border-radius: 20px;
@@ -116,7 +116,7 @@
     .char-img-box img { width: 100%; height: 100%; object-fit: contain; }
     .char-desc-box { background: #f8fafc; border-radius: 12px; padding: 14px; border: 1px solid #e2e8f0; font-size: 13px; color: #334155; line-height: 1.6; }
 
-    /* 📌 스케줄 (클릭으로 간편 변경 가능) */
+    /* 📌 스케줄 */
     .schedule-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
     .day-box { background: #f1f5f9; padding: 10px 4px; border-radius: 10px; font-size: 12px; cursor: pointer; user-select: none; transition: all 0.2s; }
     .day-box.active { background: #38bdf8; color: white; font-weight: bold; }
@@ -182,7 +182,7 @@
       </div>
     </section>
 
-    <!-- 2. 링크 -->
+    <!-- 2. 링크 (SOOP 방송국, 트위터) -->
     <section id="links" class="section-card">
       <div class="card-title">LINKS <span>링크</span></div>
       <div class="link-buttons" id="link-container"></div>
@@ -202,13 +202,13 @@
       </div>
     </section>
 
-    <!-- 4. 스케줄 (클릭하면 방송 <-> 휴방 바로 변경) -->
+    <!-- 4. 스케줄 -->
     <section id="schedule" class="section-card">
       <div class="card-title">SCHEDULE <span>이번주 스케줄 (클릭해서 상태 변경)</span></div>
       <div class="schedule-grid" id="schedule-container"></div>
     </section>
 
-    <!-- 5. 시그니처풍 (새로 추가) -->
+    <!-- 5. 시그니처풍 -->
     <section id="sigballoon" class="section-card">
       <div class="card-title">SIGNATURE BALLOON <span>시그니처풍</span></div>
       <div class="poster-grid" id="sig-grid"></div>
@@ -231,7 +231,7 @@
 
   </div>
 
-  <!-- 이미지 클릭 시 대형 모달 -->
+  <!-- 이미지 모달 -->
   <div class="image-modal" id="imageModal" onclick="this.style.display='none'">
     <img class="modal-content" id="modalImg">
   </div>
@@ -242,25 +242,25 @@
     // ==========================================
     const CONFIG = {
       profile: {
-        avatar: "profile.png",          // 프로필 이미지 파일명
-        name: "하은비",                  // 이름 (가장 크게)
-        engName: "haeunbi",             // 영문명
-        bio: "안녕하세요! 하은비의 방송 프로필 공간입니다 🫧", // 한줄 자기소개
+        avatar: "profile.png",          
+        name: "하은비",                  
+        engName: "haeunbi",             
+        bio: "안녕하세요! 하은비의 방송 프로필 공간입니다 🫧", 
         birthday: "10월 04일",
-        debutDate: "2024-01-01",        // 데뷔일 (YYYY-MM-DD 입력 시 D+Day 자동 계산)
-        tag: "#하은비 #은비단",           // 태그
-        contents: "소통 · 노래 · 게임"      // 콘텐츠
+        debutDate: "2024-01-01",        
+        tag: "#하은비 #은비단",           
+        contents: "소통 · 노래 · 게임"      
       },
+      // 📌 링크 2개만 적용
       links: [
         { title: "SOOP 방송국", url: "https://sooplive.co.kr" },
         { title: "트위터 (X)", url: "https://twitter.com" }
       ],
       character: {
-        img: "fan.png",                 // 팬캐릭터 이미지 파일명
-        name: "팬캐릭터 이름",            // 팬캐릭터 이름
+        img: "fan.png",                 
+        name: "팬캐릭터 이름",            
         desc: "팬캐릭터에 대한 간단한 설명 공간입니다.<br>원하는 문구로 작성해 보세요!"
       },
-      // 스케줄 초기 설정값
       schedule: [
         { day: "월", status: "휴방", active: false },
         { day: "화", status: "방송♥", active: true },
@@ -270,13 +270,11 @@
         { day: "토", status: "방송♥", active: true },
         { day: "일", status: "방송♥", active: true }
       ],
-      // 시그니처 풍 이미지 목록
       signatures: [
         { title: "100개 시그", img: "sig1.png" },
         { title: "500개 시그", img: "sig2.png" },
         { title: "1000개 시그", img: "sig3.png" }
       ],
-      // 옷장 목록 (A, B, C 지정 가능)
       closet: {
         hair: [
           { title: "헤어 A", img: "hair_a.png" },
@@ -291,7 +289,7 @@
       }
     };
 
-    // 1. 프로필 세팅 & 데뷔 D+Day 자동 계산
+    // 1. 프로필 세팅
     document.getElementById('p-avatar').src = CONFIG.profile.avatar;
     document.getElementById('p-avatar').onerror = function() { this.src = "https://via.placeholder.com/200/e0f2fe/0284c7?text=Profile"; };
     document.getElementById('p-name').innerText = CONFIG.profile.name;
@@ -322,7 +320,7 @@
     document.getElementById('c-name').innerText = CONFIG.character.name;
     document.getElementById('c-desc').innerHTML = CONFIG.character.desc;
 
-    // 4. 스케줄 세팅 (클릭하면 토글되는 기능 포함)
+    // 4. 스케줄 세팅
     const schedContainer = document.getElementById('schedule-container');
     function renderSchedule() {
       schedContainer.innerHTML = '';
@@ -341,7 +339,7 @@
     }
     renderSchedule();
 
-    // 카드 생성 공통 함수
+    // 카드 생성
     function createPosterCard(item) {
       return `
         <div class="poster-card" onclick="openModal('${item.img}')">
@@ -350,18 +348,16 @@
         </div>`;
     }
 
-    // 5. 시그니처 풍 세팅
+    // 5. 시그니처 풍 & 6. 옷장
     CONFIG.signatures.forEach(item => document.getElementById('sig-grid').innerHTML += createPosterCard(item));
-
-    // 6. 옷장 세팅
     CONFIG.closet.hair.forEach(item => document.getElementById('hair-grid').innerHTML += createPosterCard(item));
     CONFIG.closet.outfits.forEach(item => document.getElementById('outfit-grid').innerHTML += createPosterCard(item));
 
-    // 이동 유틸리티
+    // 유틸리티
     function scrollToSection(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
     function openModal(src) { document.getElementById('modalImg').src = src; document.getElementById('imageModal').style.display = 'flex'; }
 
-    // 마우스 패럴랙스
+    // 마우스 효과
     const normalCards = document.querySelectorAll('.section-card:not(.closet-card)');
     const closetCard = document.querySelector('.closet-card');
     document.addEventListener('mousemove', (e) => {
@@ -370,14 +366,6 @@
       normalCards.forEach(card => card.style.transform = `rotateY(${x / 60}deg) rotateX(${y / 60}deg)`);
       if (closetCard) closetCard.style.transform = `rotateY(${x / 200}deg) rotateX(${y / 200}deg)`;
     });
-
-    // 📌 높이 변화를 부모 창(SOOP)에 전달하여 빈칸 자동 제거
-    function sendHeight() {
-      const height = document.documentElement.scrollHeight;
-      window.parent.postMessage({ type: 'resizeIframe', height: height }, '*');
-    }
-    window.addEventListener('load', sendHeight);
-    window.addEventListener('resize', sendHeight);
   </script>
 </body>
 </html>

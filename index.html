@@ -118,11 +118,11 @@
     .day-box { background: #f1f5f9; padding: 10px 4px; border-radius: 10px; font-size: 12px; cursor: pointer; user-select: none; transition: all 0.2s; }
     .day-box.active { background: #38bdf8; color: white; font-weight: bold; }
 
-    /* 📌 가로 3개 배치 그리드 (3:4 비율) */
+    /* 📌 그리드 및 카드 공통 */
     .poster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .poster-card {
       position: relative; border-radius: 12px; overflow: hidden;
-      background: #f8fafc; border: 1px solid #e2e8f0; cursor: pointer; aspect-ratio: 3 / 4;
+      background: #f8fafc; border: 1px solid #e2e8f0; cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .poster-card:hover { 
@@ -133,6 +133,10 @@
     .poster-card img { width: 100%; height: 100%; object-fit: cover; }
     .card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 8px; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%); color: white; }
     .card-info .title { font-weight: bold; font-size: 13px; text-align: center; }
+
+    /* 📌 비율 분리 */
+    .sig-card { aspect-ratio: 195 / 145; }   /* 시그니처풍 규격 비율 (195x145) */
+    .closet-card { aspect-ratio: 3 / 4; }     /* 옷장 규격 비율 (3:4) */
 
     .closet-category { margin-bottom: 20px; }
     .closet-category:last-child { margin-bottom: 0; }
@@ -179,7 +183,7 @@
       </div>
     </section>
 
-    <!-- 2. 링크 (SOOP, 트위터) -->
+    <!-- 2. 링크 -->
     <section id="links" class="section-card">
       <div class="card-title">LINKS <span>링크</span></div>
       <div class="link-buttons" id="link-container"></div>
@@ -205,23 +209,23 @@
       <div class="schedule-grid" id="schedule-container"></div>
     </section>
 
-    <!-- 5. 시그니처풍 -->
+    <!-- 5. 시그니처풍 (가로 3개, 비율 195:145 적용) -->
     <section id="sigballoon" class="section-card">
       <div class="card-title">SIGNATURE BALLOON <span>시그니처풍</span></div>
       <div class="poster-grid" id="sig-grid"></div>
     </section>
 
-    <!-- 6. 옷장 (가로 3개 x 세로 2줄 = 총 6개 구성) -->
+    <!-- 6. 옷장 (가로 3개, 비율 3:4 적용) -->
     <section id="closet" class="section-card">
       <div class="card-title">CLOSET <span>옷장</span></div>
 
       <div class="closet-category">
-        <div class="category-title">HAIR (6종)</div>
+        <div class="category-title">HAIR</div>
         <div class="poster-grid" id="hair-grid"></div>
       </div>
 
       <div class="closet-category">
-        <div class="category-title">OUTFIT (의상 6종)</div>
+        <div class="category-title">OUTFIT (의상)</div>
         <div class="poster-grid" id="outfit-grid"></div>
       </div>
     </section>
@@ -241,9 +245,9 @@
         engName: "Haeunbi",             
         bio: "안녕하세요! 하은비의 방송 프로필 공간입니다 🫧", 
         birthday: "10월 04일",
-        debutDate: "2024-09-05",        
+        debutDate: "2026-09-05",        
         tag: "#하은비 #은비단",           
-        contents: "소통 · 노래 · 게임"      
+        contents: "저챗 · 게임"      
       },
       links: [
         { title: "SOOP 방송국", url: "https://www.sooplive.com/station/haeunbi" },
@@ -251,7 +255,7 @@
       ],
       character: {
         img: "fan.png",                 
-        name: "비비 (vivi) ",            
+        name: "비비 (BIBI) ",            
         desc: "팬캐릭터에 대한 간단한 설명 공간입니다.<br>원하는 문구로 작성해 보세요!"
       },
       schedule: [
@@ -263,12 +267,12 @@
         { day: "토", status: "휴방", active: false },
         { day: "일", status: "방송♥", active: true }
       ],
+      // 📌 시그니처풍 목록 (원하는 만큼 계속 추가하시면 가로 3개씩 아래로 늘어납니다)
       signatures: [
-        { title: "100개 시그", img: "sig1.png" },
-        { title: "500개 시그", img: "sig2.png" },
-        { title: "1000개 시그", img: "sig3.png" }
+        { title: "222", img: "sig1.png" },
+        { title: "777", img: "sig2.png" },
+        { title: "1482", img: "sig3.png" }
       ],
-      // 📌 가로 3개 x 세로 2줄 = 6개 세팅
       closet: {
         hair: [
           { title: "헤어 A", img: "hair_a.png" },
@@ -277,11 +281,12 @@
         outfits: [
           { title: "의상 A", img: "outfit_a.png" },
           { title: "의상 B", img: "outfit_b.png" },
+          { title: "의상 C", img: "outfit_c.png" },
         ]
       }
     };
 
-    // 프로필 데이터 입력
+    // 프로필 세팅
     document.getElementById('p-avatar').src = CONFIG.profile.avatar;
     document.getElementById('p-avatar').onerror = function() { this.src = "https://via.placeholder.com/200/e0f2fe/0284c7?text=Profile"; };
     document.getElementById('p-name').innerText = CONFIG.profile.name;
@@ -331,21 +336,21 @@
     }
     renderSchedule();
 
-    // 카드 생성 함수
-    function createPosterCard(item) {
+    // 카드 생성 함수 (타입별 비율 클래스 분리)
+    function createPosterCard(item, cardType) {
       return `
-        <div class="poster-card" onclick="openModal('${item.img}')">
-          <img src="${item.img}" onerror="this.src='https://via.placeholder.com/300x400/e2e8f0/334155?text=Image'">
+        <div class="poster-card ${cardType}" onclick="openModal('${item.img}')">
+          <img src="${item.img}" onerror="this.src='https://via.placeholder.com/300x200/e2e8f0/334155?text=Image'">
           <div class="card-info"><div class="title">${item.title}</div></div>
         </div>`;
     }
 
-    // 시그니처 및 옷장 카드 렌더링
-    CONFIG.signatures.forEach(item => document.getElementById('sig-grid').innerHTML += createPosterCard(item));
-    CONFIG.closet.hair.forEach(item => document.getElementById('hair-grid').innerHTML += createPosterCard(item));
-    CONFIG.closet.outfits.forEach(item => document.getElementById('outfit-grid').innerHTML += createPosterCard(item));
+    // 카드 렌더링
+    CONFIG.signatures.forEach(item => document.getElementById('sig-grid').innerHTML += createPosterCard(item, 'sig-card'));
+    CONFIG.closet.hair.forEach(item => document.getElementById('hair-grid').innerHTML += createPosterCard(item, 'closet-card'));
+    CONFIG.closet.outfits.forEach(item => document.getElementById('outfit-grid').innerHTML += createPosterCard(item, 'closet-card'));
 
-    // 이동 및 모달 유틸
+    // 유틸
     function scrollToSection(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
     function openModal(src) { document.getElementById('modalImg').src = src; document.getElementById('imageModal').style.display = 'flex'; }
   </script>

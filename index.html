@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>haeunbi Profile</title>
+  <!-- 눈에 잘 띄는 대표 폰트 (Pretendard) 적용 -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -12,7 +14,7 @@
       background: #eaf2f8;
       font-family: 'Pretendard', -apple-system, sans-serif;
       color: #334155;
-      padding-top: 70px;
+      padding-top: 65px;
       padding-bottom: 30px;
     }
 
@@ -20,63 +22,64 @@
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
-      height: 55px;
+      height: 50px;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: center;
       gap: 6px; z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
       flex-wrap: wrap;
     }
     .nav-btn {
-      padding: 6px 12px; border: none; background: transparent;
+      padding: 5px 12px; border: none; background: transparent;
       color: #64748b; font-weight: 700; font-size: 13px;
       border-radius: 16px; cursor: pointer; transition: all 0.2s ease;
     }
-    .nav-btn:hover { background: #e0f2fe; color: #0284c7; }
+    .nav-btn:hover { background: #e0f0ff; color: #5a9df0; }
 
-    /* 메인 레이아웃 */
+    /* 메인 레이아웃 (가로폭 꽉 채우기) */
     .container {
-      max-width: 800px; margin: 0 auto;
-      display: flex; flex-direction: column; gap: 20px; padding: 0 16px;
+      width: 100%; max-width: 100%;
+      display: flex; flex-direction: column; gap: 16px; padding: 0 8px;
     }
 
     .section-card {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 20px; padding: 24px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 18px; padding: 22px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
       border: 1px solid #ffffff;
-      scroll-margin-top: 70px;
+      scroll-margin-top: 65px;
     }
 
+    /* 📌 봉제선(Stitch) 스타일 구분선 */
     .card-title {
-      font-size: 16px; font-weight: 800; color: #0284c7;
+      font-size: 16px; font-weight: 800; color: #5a9df0;
       margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
-      border-bottom: 2px solid #f1f5f9; padding-bottom: 8px;
+      border-bottom: 3px dashed #91c2ff; padding-bottom: 8px;
     }
     .card-title span { font-size: 12px; color: #94a3b8; font-weight: normal; }
 
-    /* 프로필 레이아웃 */
+    /* 📌 프로필 레이아웃 (크기 확대) */
     .profile-grid {
       display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 20px;
+      grid-template-columns: 190px 1fr;
+      gap: 24px;
       align-items: center;
     }
     .profile-img-box {
-      width: 140px; height: 140px;
+      width: 170px; height: 170px;
       border-radius: 50%;
       overflow: hidden;
-      border: 4px solid #e0f2fe;
+      border: 5px solid #91c2ff;
       margin: 0 auto;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 14px rgba(145, 194, 255, 0.3);
       background: #f8fafc;
     }
     .profile-img-box img { width: 100%; height: 100%; object-fit: cover; }
     
-    .profile-header { margin-bottom: 10px; }
-    .profile-name { font-size: 24px; font-weight: 900; color: #0f172a; line-height: 1.1; }
-    .profile-eng { font-size: 13px; font-weight: 600; color: #0284c7; margin-top: 2px; }
+    .profile-header { margin-bottom: 12px; }
+    .profile-name { font-size: 26px; font-weight: 900; color: #0f172a; line-height: 1.1; }
+    .profile-eng { font-size: 13px; font-weight: 700; color: #5a9df0; margin-top: 4px; }
     .profile-bio { font-size: 13px; color: #475569; margin-top: 6px; }
 
     .info-table { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
@@ -86,40 +89,40 @@
     }
     .info-label { color: #64748b; font-weight: 600; }
     .info-val { color: #1e293b; font-weight: 500; }
-    .dday-badge { background: #e0f2fe; color: #0284c7; font-weight: 800; padding: 2px 6px; border-radius: 8px; font-size: 11px; margin-left: 6px; }
+    .dday-badge { background: #91c2ff; color: #ffffff; font-weight: 800; padding: 2px 7px; border-radius: 8px; font-size: 11px; margin-left: 6px; }
 
-    /* 링크 버튼 */
+    /* 📌 링크 버튼 (#91c2ff 적용) */
     .link-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
     .link-btn {
       padding: 10px 18px; border-radius: 20px;
-      background: #38bdf8; color: white; text-decoration: none;
+      background: #91c2ff; color: white; text-decoration: none;
       font-weight: 700; font-size: 13px; transition: all 0.2s;
       display: inline-flex; align-items: center; gap: 6px;
     }
-    .link-btn:hover { background: #0284c7; transform: translateY(-2px); }
+    .link-btn:hover { background: #71abf5; transform: translateY(-2px); }
 
     /* 팬캐릭터 레이아웃 */
     .fan-grid {
       display: grid;
-      grid-template-columns: 180px 1fr;
+      grid-template-columns: 200px 1fr;
       gap: 20px;
       align-items: center;
     }
     .char-img-box {
-      width: 100%; height: 200px;
+      width: 100%; height: 210px;
       border-radius: 16px; overflow: hidden;
-      background: #f8fafc; border: 1px solid #e2e8f0;
+      background: #f8fafc; border: 2px solid #e2e8f0;
     }
     .char-img-box img { width: 100%; height: 100%; object-fit: contain; }
     .char-desc-box { background: #f8fafc; border-radius: 12px; padding: 14px; border: 1px solid #e2e8f0; font-size: 13px; color: #334155; line-height: 1.6; }
 
-    /* 스케줄 */
+    /* 스케줄 (#91c2ff 적용) */
     .schedule-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
     .day-box { background: #f1f5f9; padding: 10px 4px; border-radius: 10px; font-size: 12px; cursor: pointer; user-select: none; transition: all 0.2s; }
-    .day-box.active { background: #38bdf8; color: white; font-weight: bold; }
+    .day-box.active { background: #91c2ff; color: white; font-weight: bold; }
 
-    /* 📌 그리드 및 카드 공통 */
-    .poster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    /* 포스터 그리드 공통 */
+    .poster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     .poster-card {
       position: relative; border-radius: 12px; overflow: hidden;
       background: #f8fafc; border: 1px solid #e2e8f0; cursor: pointer;
@@ -127,20 +130,20 @@
     }
     .poster-card:hover { 
       transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(2, 132, 199, 0.15); 
-      border-color: #38bdf8;
+      box-shadow: 0 6px 14px rgba(145, 194, 255, 0.35); 
+      border-color: #91c2ff;
     }
     .poster-card img { width: 100%; height: 100%; object-fit: cover; }
     .card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 8px; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%); color: white; }
     .card-info .title { font-weight: bold; font-size: 13px; text-align: center; }
 
-    /* 📌 비율 분리 */
-    .sig-card { aspect-ratio: 195 / 145; }   /* 시그니처풍 규격 비율 (195x145) */
-    .closet-card { aspect-ratio: 3 / 4; }     /* 옷장 규격 비율 (3:4) */
+    /* 비율 세팅 */
+    .sig-card { aspect-ratio: 195 / 145; }   /* 시그니처풍 (195:145) */
+    .closet-card { aspect-ratio: 3 / 4; }     /* 옷장 (3:4) */
 
     .closet-category { margin-bottom: 20px; }
     .closet-category:last-child { margin-bottom: 0; }
-    .category-title { font-size: 14px; font-weight: 800; color: #0284c7; margin-bottom: 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }
+    .category-title { font-size: 14px; font-weight: 800; color: #5a9df0; margin-bottom: 10px; border-bottom: 1.5px dashed #91c2ff; padding-bottom: 4px; }
 
     /* 이미지 모달 */
     .image-modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; }
@@ -165,6 +168,7 @@
       <div class="card-title">PROFILE <span>프로필</span></div>
       <div class="profile-grid">
         <div class="profile-img-box">
+          <!-- GIF(움짤) 파일도 지원됩니다 (예: profile.gif) -->
           <img id="p-avatar" src="" alt="프로필">
         </div>
         <div>
@@ -197,7 +201,7 @@
           <img id="c-img" src="" alt="팬캐릭터">
         </div>
         <div>
-          <h3 id="c-name" style="font-size:18px; margin-bottom:8px; color:#0284c7; font-weight:800;"></h3>
+          <h3 id="c-name" style="font-size:18px; margin-bottom:8px; color:#5a9df0; font-weight:800;"></h3>
           <div class="char-desc-box" id="c-desc"></div>
         </div>
       </div>
@@ -209,13 +213,13 @@
       <div class="schedule-grid" id="schedule-container"></div>
     </section>
 
-    <!-- 5. 시그니처풍 (가로 3개, 비율 195:145 적용) -->
+    <!-- 5. 시그니처풍 -->
     <section id="sigballoon" class="section-card">
       <div class="card-title">SIGNATURE BALLOON <span>시그니처풍</span></div>
       <div class="poster-grid" id="sig-grid"></div>
     </section>
 
-    <!-- 6. 옷장 (가로 3개, 비율 3:4 적용) -->
+    <!-- 6. 옷장 -->
     <section id="closet" class="section-card">
       <div class="card-title">CLOSET <span>옷장</span></div>
 
@@ -240,10 +244,10 @@
   <script>
     const CONFIG = {
       profile: {
-        avatar: "profile.png",          
+        avatar: "profile.png",          // GIF 지원 (예: profile.gif)
         name: "하은비",                  
         engName: "Haeunbi",             
-        bio: "안녕하세요! 하은비의 방송 프로필 공간입니다 🫧", 
+        bio: "안녕하세요! 하은비의 방송 프로필 공간입니다 🫧", // 이모티콘 자율 수정 가능
         birthday: "10월 04일",
         debutDate: "2026-09-05",        
         tag: "#하은비 #은비단",           
@@ -251,11 +255,11 @@
       },
       links: [
         { title: "SOOP 방송국", url: "https://www.sooplive.com/station/haeunbi" },
-        { title: "트위터 (X)", url: "https://x.com/Fnea_eunbi" }
+        { title: "트위터 (X)", url: "https://twitter.com" }
       ],
       character: {
-        img: "fan.png",                 
-        name: "비비 (BIBI) ",            
+        img: "fan.png",                 // GIF 지원
+        name: "비비 (BIBI)",            
         desc: "팬캐릭터에 대한 간단한 설명 공간입니다.<br>원하는 문구로 작성해 보세요!"
       },
       schedule: [
@@ -267,28 +271,28 @@
         { day: "토", status: "휴방", active: false },
         { day: "일", status: "방송♥", active: true }
       ],
-      // 📌 시그니처풍 목록 (원하는 만큼 계속 추가하시면 가로 3개씩 아래로 늘어납니다)
       signatures: [
-        { title: "222", img: "sig1.png" },
+        { title: "222", img: "sig1.png" }, // GIF 지원 (예: sig1.gif)
         { title: "777", img: "sig2.png" },
-        { title: "1482", img: "sig3.png" }
+        { title: "1482 시그", img: "sig3.png" }
       ],
       closet: {
         hair: [
           { title: "헤어 A", img: "hair_a.png" },
           { title: "헤어 B", img: "hair_b.png" },
+          { title: "헤어 C", img: "hair_c.png" }
         ],
         outfits: [
           { title: "의상 A", img: "outfit_a.png" },
           { title: "의상 B", img: "outfit_b.png" },
-          { title: "의상 C", img: "outfit_c.png" },
+          { title: "의상 C", img: "outfit_c.png" }
         ]
       }
     };
 
-    // 프로필 세팅
+    // 데이터 렌더링
     document.getElementById('p-avatar').src = CONFIG.profile.avatar;
-    document.getElementById('p-avatar').onerror = function() { this.src = "https://via.placeholder.com/200/e0f2fe/0284c7?text=Profile"; };
+    document.getElementById('p-avatar').onerror = function() { this.src = "https://via.placeholder.com/200/91c2ff/ffffff?text=Profile"; };
     document.getElementById('p-name').innerText = CONFIG.profile.name;
     document.getElementById('p-engname').innerText = CONFIG.profile.engName;
     document.getElementById('p-bio').innerText = CONFIG.profile.bio;
@@ -305,19 +309,16 @@
       document.getElementById('p-dday').innerText = `D+${diffDays}일`;
     }
 
-    // 링크 세팅
     const linkBox = document.getElementById('link-container');
     CONFIG.links.forEach(l => {
       linkBox.innerHTML += `<a href="${l.url}" target="_blank" class="link-btn">🔗 ${l.title}</a>`;
     });
 
-    // 팬캐릭터 세팅
     document.getElementById('c-img').src = CONFIG.character.img;
-    document.getElementById('c-img').onerror = function() { this.src = "https://via.placeholder.com/220x260/e0f2fe/0284c7?text=Character"; };
+    document.getElementById('c-img').onerror = function() { this.src = "https://via.placeholder.com/220x260/91c2ff/ffffff?text=Character"; };
     document.getElementById('c-name').innerText = CONFIG.character.name;
     document.getElementById('c-desc').innerHTML = CONFIG.character.desc;
 
-    // 스케줄 세팅
     const schedContainer = document.getElementById('schedule-container');
     function renderSchedule() {
       schedContainer.innerHTML = '';
@@ -336,7 +337,6 @@
     }
     renderSchedule();
 
-    // 카드 생성 함수 (타입별 비율 클래스 분리)
     function createPosterCard(item, cardType) {
       return `
         <div class="poster-card ${cardType}" onclick="openModal('${item.img}')">
@@ -345,12 +345,10 @@
         </div>`;
     }
 
-    // 카드 렌더링
     CONFIG.signatures.forEach(item => document.getElementById('sig-grid').innerHTML += createPosterCard(item, 'sig-card'));
     CONFIG.closet.hair.forEach(item => document.getElementById('hair-grid').innerHTML += createPosterCard(item, 'closet-card'));
     CONFIG.closet.outfits.forEach(item => document.getElementById('outfit-grid').innerHTML += createPosterCard(item, 'closet-card'));
 
-    // 유틸
     function scrollToSection(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
     function openModal(src) { document.getElementById('modalImg').src = src; document.getElementById('imageModal').style.display = 'flex'; }
   </script>

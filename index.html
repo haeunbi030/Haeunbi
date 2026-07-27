@@ -13,7 +13,7 @@
       font-family: 'Pretendard', -apple-system, sans-serif;
       color: #334155;
       padding-top: 70px;
-      padding-bottom: 80px;
+      padding-bottom: 40px;
       perspective: 1000px;
     }
 
@@ -25,11 +25,12 @@
       background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: center;
-      gap: 10px; z-index: 1000;
+      gap: 6px; z-index: 1000;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
     }
     .nav-btn {
-      padding: 6px 14px; border: none; background: transparent;
+      padding: 6px 12px; border: none; background: transparent;
       color: #64748b; font-weight: 700; font-size: 13px;
       border-radius: 16px; cursor: pointer; transition: all 0.2s ease;
     }
@@ -58,15 +59,15 @@
     }
     .card-title span { font-size: 12px; color: #94a3b8; font-weight: normal; }
 
-    /* 📌 프로필 레이아웃 (원형 이미지 + 정보표) */
+    /* 📌 프로필 전용 레이아웃 */
     .profile-grid {
       display: grid;
-      grid-template-columns: 180px 1fr;
+      grid-template-columns: 170px 1fr;
       gap: 20px;
       align-items: center;
     }
     .profile-img-box {
-      width: 160px; height: 160px;
+      width: 150px; height: 150px;
       border-radius: 50%;
       overflow: hidden;
       border: 4px solid #e0f2fe;
@@ -76,33 +77,22 @@
     }
     .profile-img-box img { width: 100%; height: 100%; object-fit: cover; }
     
-    .info-table { display: flex; flex-direction: column; gap: 8px; }
+    .profile-header { margin-bottom: 12px; }
+    .profile-name { font-size: 26px; font-weight: 900; color: #0f172a; line-height: 1.1; }
+    .profile-eng { font-size: 14px; font-weight: 600; color: #0284c7; margin-top: 2px; }
+    .profile-bio { font-size: 13px; color: #475569; margin-top: 6px; }
+
+    .info-table { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
     .info-row {
-      display: grid; grid-template-columns: 80px 1fr;
-      font-size: 13px; padding-bottom: 6px; border-bottom: 1px dashed #e2e8f0;
+      display: grid; grid-template-columns: 75px 1fr;
+      font-size: 13px; padding-bottom: 4px; border-bottom: 1px dashed #e2e8f0;
     }
     .info-label { color: #64748b; font-weight: 600; }
     .info-val { color: #1e293b; font-weight: 500; }
-    .profile-bio { margin-top: 12px; font-size: 13px; color: #475569; line-height: 1.5; }
+    .dday-badge { background: #e0f2fe; color: #0284c7; font-weight: 800; padding: 2px 6px; border-radius: 8px; font-size: 11px; margin-left: 6px; }
 
-    /* 📌 팬캐릭터 레이아웃 */
-    .fan-grid {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 20px;
-      align-items: center;
-    }
-    .char-img-box {
-      width: 100%; height: 260px;
-      border-radius: 16px; overflow: hidden;
-      background: #f8fafc; border: 1px solid #e2e8f0;
-    }
-    .char-img-box img { width: 100%; height: 100%; object-fit: contain; }
-    .char-desc-list { display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #334155; }
-    .char-desc-item { display: flex; gap: 6px; align-items: flex-start; }
-
-    /* 📌 링크 버튼 스타일 */
-    .link-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+    /* 📌 링크 버튼 */
+    .link-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
     .link-btn {
       padding: 10px 18px; border-radius: 20px;
       background: #38bdf8; color: white; text-decoration: none;
@@ -111,31 +101,45 @@
     }
     .link-btn:hover { background: #0284c7; transform: translateY(-2px); }
 
-    /* 스케줄 그리드 */
-    .schedule-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
-    .day-box { background: #f1f5f9; padding: 10px 4px; border-radius: 10px; font-size: 12px; }
-    .day-box.active { background: #38bdf8; color: white; font-weight: bold; }
+    /* 📌 팬캐릭터 레이아웃 */
+    .fan-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+    .char-img-box {
+      width: 100%; height: 240px;
+      border-radius: 16px; overflow: hidden;
+      background: #f8fafc; border: 1px solid #e2e8f0;
+    }
+    .char-img-box img { width: 100%; height: 100%; object-fit: contain; }
+    .char-desc-box { background: #f8fafc; border-radius: 12px; padding: 14px; border: 1px solid #e2e8f0; font-size: 13px; color: #334155; line-height: 1.6; }
 
-    /* 📌 옷장 섹션 스타일 */
-    .closet-category { margin-bottom: 24px; }
-    .category-header { display: flex; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; margin-bottom: 12px; }
-    .category-title { font-size: 15px; font-weight: 800; color: #0284c7; }
+    /* 📌 스케줄 (클릭으로 간편 변경 가능) */
+    .schedule-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
+    .day-box { background: #f1f5f9; padding: 10px 4px; border-radius: 10px; font-size: 12px; cursor: pointer; user-select: none; transition: all 0.2s; }
+    .day-box.active { background: #38bdf8; color: white; font-weight: bold; }
+    .day-box:hover { transform: translateY(-2px); }
+
+    /* 📌 시그니처 풍 & 옷장 포스터 그리드 */
     .poster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    
-    /* 💡 마우스 올렸을 때 팝업되는 포스터 카드 (기울임은 줄이고 부드럽게 강조) */
     .poster-card {
       position: relative; border-radius: 12px; overflow: hidden;
       background: #f8fafc; border: 1px solid #e2e8f0; cursor: pointer; aspect-ratio: 3 / 4;
       transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
     }
     .poster-card:hover { 
-      transform: translateY(-4px) scale(1.015); /* 살짝만 팝업되도록 조절 */
+      transform: translateY(-4px) scale(1.015);
       box-shadow: 0 8px 16px rgba(2, 132, 199, 0.15); 
       border-color: #38bdf8;
     }
     .poster-card img { width: 100%; height: 100%; object-fit: cover; }
     .card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 8px; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%); color: white; }
-    .card-info .title { font-weight: bold; font-size: 13px; }
+    .card-info .title { font-weight: bold; font-size: 13px; text-align: center; }
+
+    .closet-category { margin-bottom: 20px; }
+    .category-title { font-size: 14px; font-weight: 800; color: #0284c7; margin-bottom: 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }
 
     /* 이미지 모달 */
     .image-modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; }
@@ -144,18 +148,18 @@
 </head>
 <body>
 
-  <!-- 상단 메뉴 -->
   <nav class="navbar">
     <button class="nav-btn" onclick="scrollToSection('profile')">프로필</button>
     <button class="nav-btn" onclick="scrollToSection('links')">링크</button>
     <button class="nav-btn" onclick="scrollToSection('character')">팬캐릭터</button>
-    <button class="nav-btn" onclick="scrollToSection('schedule')">이번주스케줄</button>
+    <button class="nav-btn" onclick="scrollToSection('schedule')">스케줄</button>
+    <button class="nav-btn" onclick="scrollToSection('sigballoon')">시그니처풍</button>
     <button class="nav-btn" onclick="scrollToSection('closet')">옷장</button>
   </nav>
 
-  <div class="container">
+  <div class="container" id="main-container">
 
-    <!-- 1. 프로필 (이미지 + 정보표) -->
+    <!-- 1. 프로필 -->
     <section id="profile" class="section-card">
       <div class="card-title">PROFILE <span>프로필</span></div>
       <div class="profile-grid">
@@ -163,13 +167,17 @@
           <img id="p-avatar" src="" alt="프로필">
         </div>
         <div>
+          <div class="profile-header">
+            <div class="profile-name" id="p-name"></div>
+            <div class="profile-eng" id="p-engname"></div>
+            <div class="profile-bio" id="p-bio"></div>
+          </div>
           <div class="info-table">
-            <div class="info-row"><span class="info-label">이름</span><span class="info-val" id="p-name"></span></div>
-            <div class="info-row"><span class="info-label">영문명</span><span class="info-val" id="p-engname"></span></div>
             <div class="info-row"><span class="info-label">생일</span><span class="info-val" id="p-birthday"></span></div>
+            <div class="info-row"><span class="info-label">데뷔</span><span class="info-val"><span id="p-debut"></span><span class="dday-badge" id="p-dday"></span></span></div>
+            <div class="info-row"><span class="info-label">태그</span><span class="info-val" id="p-tag"></span></div>
             <div class="info-row"><span class="info-label">콘텐츠</span><span class="info-val" id="p-contents"></span></div>
           </div>
-          <p class="profile-bio" id="p-bio"></p>
         </div>
       </div>
     </section>
@@ -180,7 +188,7 @@
       <div class="link-buttons" id="link-container"></div>
     </section>
 
-    <!-- 3. 팬캐릭터 (이미지 + 설명) -->
+    <!-- 3. 팬캐릭터 -->
     <section id="character" class="section-card">
       <div class="card-title">FAN CHARACTER <span>팬캐릭터</span></div>
       <div class="fan-grid">
@@ -188,149 +196,188 @@
           <img id="c-img" src="" alt="팬캐릭터">
         </div>
         <div>
-          <h3 id="c-name" style="font-size:16px; margin-bottom:10px; color:#0284c7;"></h3>
-          <div class="char-desc-list" id="c-desc-list"></div>
+          <h3 id="c-name" style="font-size:18px; margin-bottom:8px; color:#0284c7; font-weight:800;"></h3>
+          <div class="char-desc-box" id="c-desc"></div>
         </div>
       </div>
     </section>
 
-    <!-- 4. 이번주 스케줄 -->
+    <!-- 4. 스케줄 (클릭하면 방송 <-> 휴방 바로 변경) -->
     <section id="schedule" class="section-card">
-      <div class="card-title">SCHEDULE <span>이번주 스케줄</span></div>
+      <div class="card-title">SCHEDULE <span>이번주 스케줄 (클릭해서 상태 변경)</span></div>
       <div class="schedule-grid" id="schedule-container"></div>
     </section>
 
-    <!-- 5. 옷장 (움직임 완화 적용) -->
+    <!-- 5. 시그니처풍 (새로 추가) -->
+    <section id="sigballoon" class="section-card">
+      <div class="card-title">SIGNATURE BALLOON <span>시그니처풍</span></div>
+      <div class="poster-grid" id="sig-grid"></div>
+    </section>
+
+    <!-- 6. 옷장 -->
     <section id="closet" class="section-card closet-card">
       <div class="card-title">CLOSET <span>옷장</span></div>
 
       <div class="closet-category">
-        <div class="category-header"><span class="category-title">HAIR</span></div>
+        <div class="category-title">HAIR</div>
         <div class="poster-grid" id="hair-grid"></div>
       </div>
 
       <div class="closet-category">
-        <div class="category-header"><span class="category-title">NEW LOOKS (의상)</span></div>
+        <div class="category-title">OUTFIT (의상)</div>
         <div class="poster-grid" id="outfit-grid"></div>
       </div>
     </section>
 
   </div>
 
-  <!-- 이미지 모달 -->
+  <!-- 이미지 클릭 시 대형 모달 -->
   <div class="image-modal" id="imageModal" onclick="this.style.display='none'">
     <img class="modal-content" id="modalImg">
   </div>
 
   <script>
     // ==========================================
-    // 💡 이미지 파일명 및 데이터 수정 영역
+    // 💡 정보 입력 및 관리 공간 (CONFIG)
     // ==========================================
     const CONFIG = {
       profile: {
-        // GitHub에 올린 프로필 이미지 파일명을 적어주세요 (예: "profile.png")
-        avatar: "profile.png", 
-        name: "하은비",
-        engName: "haeunbi",
-        birthday: "10.04",
-        contents: "소통 · 노래 · 게임",
-        bio: "안녕하세요! 하은비의 방송 프로필 공간에 오신 것을 환영합니다 🫧"
+        avatar: "profile.png",          // 프로필 이미지 파일명
+        name: "하은비",                  // 이름 (가장 크게)
+        engName: "haeunbi",             // 영문명
+        bio: "안녕하세요! 하은비의 방송 프로필 공간입니다 🫧", // 한줄 자기소개
+        birthday: "10월 04일",
+        debutDate: "2024-01-01",        // 데뷔일 (YYYY-MM-DD 입력 시 D+Day 자동 계산)
+        tag: "#하은비 #은비단",           // 태그
+        contents: "소통 · 노래 · 게임"      // 콘텐츠
       },
       links: [
         { title: "SOOP 방송국", url: "https://sooplive.co.kr" },
-        { title: "노래책", url: "#" },
-        { title: "문의하기", url: "#" }
+        { title: "트위터 (X)", url: "https://twitter.com" }
       ],
       character: {
-        // GitHub에 올린 팬캐릭터 이미지 파일명을 적어주세요 (예: "fan.png")
-        img: "fan.png", 
-        name: "팬캐릭터 이름",
-        descs: [
-          "🫧 하은비의 소중한 팬 캐릭터 설명란입니다.",
-          "🫧 원하시는 설명 문구를 여기에 추가해 주세요.",
-          "🫧 마우스 및 클릭으로 확대해서 감상할 수 있습니다."
-        ]
+        img: "fan.png",                 // 팬캐릭터 이미지 파일명
+        name: "팬캐릭터 이름",            // 팬캐릭터 이름
+        desc: "팬캐릭터에 대한 간단한 설명 공간입니다.<br>원하는 문구로 작성해 보세요!"
       },
+      // 스케줄 초기 설정값
       schedule: [
-        { day: "월", status: "휴방" },
+        { day: "월", status: "휴방", active: false },
         { day: "화", status: "방송♥", active: true },
         { day: "수", status: "방송♥", active: true },
-        { day: "목", status: "휴방" },
+        { day: "목", status: "휴방", active: false },
         { day: "금", status: "방송♥", active: true },
         { day: "토", status: "방송♥", active: true },
         { day: "일", status: "방송♥", active: true }
       ],
+      // 시그니처 풍 이미지 목록
+      signatures: [
+        { title: "100개 시그", img: "sig1.png" },
+        { title: "500개 시그", img: "sig2.png" },
+        { title: "1000개 시그", img: "sig3.png" }
+      ],
+      // 옷장 목록 (A, B, C 지정 가능)
       closet: {
         hair: [
-          { id: '헤어 A', img: 'hair1.png' },
-          { id: '헤어 B', img: 'hair2.png' }
+          { title: "헤어 A", img: "hair_a.png" },
+          { title: "헤어 B", img: "hair_b.png" },
+          { title: "헤어 C", img: "hair_c.png" }
         ],
         outfits: [
-          { id: '의상 A', img: 'outfit1.png' },
-          { id: '의상 B', img: 'outfit2.png' }
+          { title: "의상 A", img: "outfit_a.png" },
+          { title: "의상 B", img: "outfit_b.png" },
+          { title: "의상 C", img: "outfit_c.png" }
         ]
       }
     };
 
-    // 프로필 데이터 세팅
+    // 1. 프로필 세팅 & 데뷔 D+Day 자동 계산
     document.getElementById('p-avatar').src = CONFIG.profile.avatar;
     document.getElementById('p-avatar').onerror = function() { this.src = "https://via.placeholder.com/200/e0f2fe/0284c7?text=Profile"; };
     document.getElementById('p-name').innerText = CONFIG.profile.name;
     document.getElementById('p-engname').innerText = CONFIG.profile.engName;
-    document.getElementById('p-birthday').innerText = CONFIG.profile.birthday;
-    document.getElementById('p-contents').innerText = CONFIG.profile.contents;
     document.getElementById('p-bio').innerText = CONFIG.profile.bio;
+    document.getElementById('p-birthday').innerText = CONFIG.profile.birthday;
+    document.getElementById('p-debut').innerText = CONFIG.profile.debutDate;
+    document.getElementById('p-tag').innerText = CONFIG.profile.tag;
+    document.getElementById('p-contents').innerText = CONFIG.profile.contents;
 
-    // 링크 버튼 생성
+    if (CONFIG.profile.debutDate) {
+      const debut = new Date(CONFIG.profile.debutDate);
+      const today = new Date();
+      const diffTime = Math.abs(today - debut);
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+      document.getElementById('p-dday').innerText = `D+${diffDays}일`;
+    }
+
+    // 2. 링크 버튼 세팅
     const linkBox = document.getElementById('link-container');
     CONFIG.links.forEach(l => {
       linkBox.innerHTML += `<a href="${l.url}" target="_blank" class="link-btn">🔗 ${l.title}</a>`;
     });
 
-    // 팬캐릭터 세팅
+    // 3. 팬캐릭터 세팅
     document.getElementById('c-img').src = CONFIG.character.img;
     document.getElementById('c-img').onerror = function() { this.src = "https://via.placeholder.com/220x260/e0f2fe/0284c7?text=Character"; };
     document.getElementById('c-name').innerText = CONFIG.character.name;
-    const descBox = document.getElementById('c-desc-list');
-    CONFIG.character.descs.forEach(d => {
-      descBox.innerHTML += `<div class="char-desc-item"><span>${d}</span></div>`;
-    });
+    document.getElementById('c-desc').innerHTML = CONFIG.character.desc;
 
-    // 스케줄 세팅
+    // 4. 스케줄 세팅 (클릭하면 토글되는 기능 포함)
     const schedContainer = document.getElementById('schedule-container');
-    CONFIG.schedule.forEach(item => {
-      schedContainer.innerHTML += `<div class="day-box ${item.active ? 'active' : ''}"><div>${item.day}</div><div style="margin-top:4px;">${item.status}</div></div>`;
-    });
-
-    // 옷장 카드리스트 세팅
-    function createCard(item) {
-      return `<div class="poster-card" onclick="openModal('${item.img}')"><img src="${item.img}" onerror="this.src='https://via.placeholder.com/300x400/e2e8f0/334155?text=Image'"><div class="card-info"><div class="title">${item.id}</div></div></div>`;
+    function renderSchedule() {
+      schedContainer.innerHTML = '';
+      CONFIG.schedule.forEach((item, idx) => {
+        schedContainer.innerHTML += `
+          <div class="day-box ${item.active ? 'active' : ''}" onclick="toggleSchedule(${idx})">
+            <div>${item.day}</div>
+            <div style="margin-top:4px;">${item.status}</div>
+          </div>`;
+      });
     }
-    CONFIG.closet.hair.forEach(item => document.getElementById('hair-grid').innerHTML += createCard(item));
-    CONFIG.closet.outfits.forEach(item => document.getElementById('outfit-grid').innerHTML += createCard(item));
+    function toggleSchedule(idx) {
+      CONFIG.schedule[idx].active = !CONFIG.schedule[idx].active;
+      CONFIG.schedule[idx].status = CONFIG.schedule[idx].active ? "방송♥" : "휴방";
+      renderSchedule();
+    }
+    renderSchedule();
+
+    // 카드 생성 공통 함수
+    function createPosterCard(item) {
+      return `
+        <div class="poster-card" onclick="openModal('${item.img}')">
+          <img src="${item.img}" onerror="this.src='https://via.placeholder.com/300x400/e2e8f0/334155?text=Image'">
+          <div class="card-info"><div class="title">${item.title}</div></div>
+        </div>`;
+    }
+
+    // 5. 시그니처 풍 세팅
+    CONFIG.signatures.forEach(item => document.getElementById('sig-grid').innerHTML += createPosterCard(item));
+
+    // 6. 옷장 세팅
+    CONFIG.closet.hair.forEach(item => document.getElementById('hair-grid').innerHTML += createPosterCard(item));
+    CONFIG.closet.outfits.forEach(item => document.getElementById('outfit-grid').innerHTML += createPosterCard(item));
 
     // 이동 유틸리티
     function scrollToSection(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
     function openModal(src) { document.getElementById('modalImg').src = src; document.getElementById('imageModal').style.display = 'flex'; }
 
-    // 📌 마우스 3D 패럴랙스 연출 (옷장 부분만 강도를 대폭 낮춤)
+    // 마우스 패럴랙스
     const normalCards = document.querySelectorAll('.section-card:not(.closet-card)');
     const closetCard = document.querySelector('.closet-card');
-
     document.addEventListener('mousemove', (e) => {
       const x = (window.innerWidth / 2 - e.pageX);
       const y = (window.innerHeight / 2 - e.pageY);
-      
-      // 일반 카드 반응 (보통)
-      normalCards.forEach(card => {
-        card.style.transform = `rotateY(${x / 50}deg) rotateX(${y / 50}deg)`;
-      });
-      
-      // 옷장 카드 반응 (아주 미세하게 제어: 기존의 1/4 반응속도)
-      if (closetCard) {
-        closetCard.style.transform = `rotateY(${x / 200}deg) rotateX(${y / 200}deg)`;
-      }
+      normalCards.forEach(card => card.style.transform = `rotateY(${x / 60}deg) rotateX(${y / 60}deg)`);
+      if (closetCard) closetCard.style.transform = `rotateY(${x / 200}deg) rotateX(${y / 200}deg)`;
     });
+
+    // 📌 높이 변화를 부모 창(SOOP)에 전달하여 빈칸 자동 제거
+    function sendHeight() {
+      const height = document.documentElement.scrollHeight;
+      window.parent.postMessage({ type: 'resizeIframe', height: height }, '*');
+    }
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
   </script>
 </body>
 </html>

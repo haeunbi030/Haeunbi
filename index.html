@@ -13,8 +13,7 @@
       font-family: 'Pretendard', -apple-system, sans-serif;
       color: #334155;
       padding-top: 70px;
-      padding-bottom: 60px;
-      perspective: 1000px;
+      padding-bottom: 30px;
     }
 
     /* 상단 네비게이션 */
@@ -22,7 +21,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       height: 55px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: center;
       gap: 6px; z-index: 1000;
@@ -45,10 +44,8 @@
     .section-card {
       background: rgba(255, 255, 255, 0.95);
       border-radius: 20px; padding: 24px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
       border: 1px solid #ffffff;
-      transition: transform 0.1s ease-out;
-      transform-style: preserve-3d;
       scroll-margin-top: 70px;
     }
 
@@ -59,15 +56,15 @@
     }
     .card-title span { font-size: 12px; color: #94a3b8; font-weight: normal; }
 
-    /* 📌 프로필 전용 레이아웃 */
+    /* 프로필 레이아웃 */
     .profile-grid {
       display: grid;
-      grid-template-columns: 170px 1fr;
+      grid-template-columns: 160px 1fr;
       gap: 20px;
       align-items: center;
     }
     .profile-img-box {
-      width: 150px; height: 150px;
+      width: 140px; height: 140px;
       border-radius: 50%;
       overflow: hidden;
       border: 4px solid #e0f2fe;
@@ -77,12 +74,12 @@
     }
     .profile-img-box img { width: 100%; height: 100%; object-fit: cover; }
     
-    .profile-header { margin-bottom: 12px; }
-    .profile-name { font-size: 26px; font-weight: 900; color: #0f172a; line-height: 1.1; }
-    .profile-eng { font-size: 14px; font-weight: 600; color: #0284c7; margin-top: 2px; }
+    .profile-header { margin-bottom: 10px; }
+    .profile-name { font-size: 24px; font-weight: 900; color: #0f172a; line-height: 1.1; }
+    .profile-eng { font-size: 13px; font-weight: 600; color: #0284c7; margin-top: 2px; }
     .profile-bio { font-size: 13px; color: #475569; margin-top: 6px; }
 
-    .info-table { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+    .info-table { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
     .info-row {
       display: grid; grid-template-columns: 75px 1fr;
       font-size: 13px; padding-bottom: 4px; border-bottom: 1px dashed #e2e8f0;
@@ -91,7 +88,7 @@
     .info-val { color: #1e293b; font-weight: 500; }
     .dday-badge { background: #e0f2fe; color: #0284c7; font-weight: 800; padding: 2px 6px; border-radius: 8px; font-size: 11px; margin-left: 6px; }
 
-    /* 📌 링크 버튼 (SOOP, 트위터만 유지) */
+    /* 링크 버튼 */
     .link-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
     .link-btn {
       padding: 10px 18px; border-radius: 20px;
@@ -101,37 +98,36 @@
     }
     .link-btn:hover { background: #0284c7; transform: translateY(-2px); }
 
-    /* 📌 팬캐릭터 레이아웃 */
+    /* 팬캐릭터 레이아웃 */
     .fan-grid {
       display: grid;
-      grid-template-columns: 200px 1fr;
+      grid-template-columns: 180px 1fr;
       gap: 20px;
       align-items: center;
     }
     .char-img-box {
-      width: 100%; height: 240px;
+      width: 100%; height: 200px;
       border-radius: 16px; overflow: hidden;
       background: #f8fafc; border: 1px solid #e2e8f0;
     }
     .char-img-box img { width: 100%; height: 100%; object-fit: contain; }
     .char-desc-box { background: #f8fafc; border-radius: 12px; padding: 14px; border: 1px solid #e2e8f0; font-size: 13px; color: #334155; line-height: 1.6; }
 
-    /* 📌 스케줄 */
+    /* 스케줄 */
     .schedule-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
     .day-box { background: #f1f5f9; padding: 10px 4px; border-radius: 10px; font-size: 12px; cursor: pointer; user-select: none; transition: all 0.2s; }
     .day-box.active { background: #38bdf8; color: white; font-weight: bold; }
-    .day-box:hover { transform: translateY(-2px); }
 
-    /* 📌 시그니처 풍 & 옷장 포스터 그리드 */
+    /* 📌 가로 3개 배치 그리드 (3:4 비율) */
     .poster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .poster-card {
       position: relative; border-radius: 12px; overflow: hidden;
       background: #f8fafc; border: 1px solid #e2e8f0; cursor: pointer; aspect-ratio: 3 / 4;
-      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .poster-card:hover { 
-      transform: translateY(-4px) scale(1.015);
-      box-shadow: 0 8px 16px rgba(2, 132, 199, 0.15); 
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(2, 132, 199, 0.15); 
       border-color: #38bdf8;
     }
     .poster-card img { width: 100%; height: 100%; object-fit: cover; }
@@ -139,6 +135,7 @@
     .card-info .title { font-weight: bold; font-size: 13px; text-align: center; }
 
     .closet-category { margin-bottom: 20px; }
+    .closet-category:last-child { margin-bottom: 0; }
     .category-title { font-size: 14px; font-weight: 800; color: #0284c7; margin-bottom: 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }
 
     /* 이미지 모달 */
@@ -157,7 +154,7 @@
     <button class="nav-btn" onclick="scrollToSection('closet')">옷장</button>
   </nav>
 
-  <div class="container" id="main-container">
+  <div class="container">
 
     <!-- 1. 프로필 -->
     <section id="profile" class="section-card">
@@ -182,7 +179,7 @@
       </div>
     </section>
 
-    <!-- 2. 링크 (SOOP 방송국, 트위터) -->
+    <!-- 2. 링크 (SOOP, 트위터) -->
     <section id="links" class="section-card">
       <div class="card-title">LINKS <span>링크</span></div>
       <div class="link-buttons" id="link-container"></div>
@@ -204,7 +201,7 @@
 
     <!-- 4. 스케줄 -->
     <section id="schedule" class="section-card">
-      <div class="card-title">SCHEDULE <span>이번주 스케줄 (클릭해서 상태 변경)</span></div>
+      <div class="card-title">SCHEDULE <span>이번주 스케줄</span></div>
       <div class="schedule-grid" id="schedule-container"></div>
     </section>
 
@@ -214,17 +211,17 @@
       <div class="poster-grid" id="sig-grid"></div>
     </section>
 
-    <!-- 6. 옷장 -->
-    <section id="closet" class="section-card closet-card">
+    <!-- 6. 옷장 (가로 3개 x 세로 2줄 = 총 6개 구성) -->
+    <section id="closet" class="section-card">
       <div class="card-title">CLOSET <span>옷장</span></div>
 
       <div class="closet-category">
-        <div class="category-title">HAIR</div>
+        <div class="category-title">HAIR (6종)</div>
         <div class="poster-grid" id="hair-grid"></div>
       </div>
 
       <div class="closet-category">
-        <div class="category-title">OUTFIT (의상)</div>
+        <div class="category-title">OUTFIT (의상 6종)</div>
         <div class="poster-grid" id="outfit-grid"></div>
       </div>
     </section>
@@ -237,37 +234,33 @@
   </div>
 
   <script>
-    // ==========================================
-    // 💡 정보 입력 및 관리 공간 (CONFIG)
-    // ==========================================
     const CONFIG = {
       profile: {
         avatar: "profile.png",          
         name: "하은비",                  
-        engName: "haeunbi",             
+        engName: "Haeunbi",             
         bio: "안녕하세요! 하은비의 방송 프로필 공간입니다 🫧", 
         birthday: "10월 04일",
-        debutDate: "2024-01-01",        
+        debutDate: "2024-09-05",        
         tag: "#하은비 #은비단",           
         contents: "소통 · 노래 · 게임"      
       },
-      // 📌 링크 2개만 적용
       links: [
-        { title: "SOOP 방송국", url: "https://sooplive.co.kr" },
-        { title: "트위터 (X)", url: "https://twitter.com" }
+        { title: "SOOP 방송국", url: "https://www.sooplive.com/station/haeunbi" },
+        { title: "트위터 (X)", url: "https://x.com/Fnea_eunbi" }
       ],
       character: {
         img: "fan.png",                 
-        name: "팬캐릭터 이름",            
+        name: "비비 (vivi) ",            
         desc: "팬캐릭터에 대한 간단한 설명 공간입니다.<br>원하는 문구로 작성해 보세요!"
       },
       schedule: [
-        { day: "월", status: "휴방", active: false },
+        { day: "월", status: "방송♥", active: true },
         { day: "화", status: "방송♥", active: true },
         { day: "수", status: "방송♥", active: true },
         { day: "목", status: "휴방", active: false },
         { day: "금", status: "방송♥", active: true },
-        { day: "토", status: "방송♥", active: true },
+        { day: "토", status: "휴방", active: false },
         { day: "일", status: "방송♥", active: true }
       ],
       signatures: [
@@ -275,21 +268,20 @@
         { title: "500개 시그", img: "sig2.png" },
         { title: "1000개 시그", img: "sig3.png" }
       ],
+      // 📌 가로 3개 x 세로 2줄 = 6개 세팅
       closet: {
         hair: [
           { title: "헤어 A", img: "hair_a.png" },
           { title: "헤어 B", img: "hair_b.png" },
-          { title: "헤어 C", img: "hair_c.png" }
         ],
         outfits: [
           { title: "의상 A", img: "outfit_a.png" },
           { title: "의상 B", img: "outfit_b.png" },
-          { title: "의상 C", img: "outfit_c.png" }
         ]
       }
     };
 
-    // 1. 프로필 세팅
+    // 프로필 데이터 입력
     document.getElementById('p-avatar').src = CONFIG.profile.avatar;
     document.getElementById('p-avatar').onerror = function() { this.src = "https://via.placeholder.com/200/e0f2fe/0284c7?text=Profile"; };
     document.getElementById('p-name').innerText = CONFIG.profile.name;
@@ -308,19 +300,19 @@
       document.getElementById('p-dday').innerText = `D+${diffDays}일`;
     }
 
-    // 2. 링크 버튼 세팅
+    // 링크 세팅
     const linkBox = document.getElementById('link-container');
     CONFIG.links.forEach(l => {
       linkBox.innerHTML += `<a href="${l.url}" target="_blank" class="link-btn">🔗 ${l.title}</a>`;
     });
 
-    // 3. 팬캐릭터 세팅
+    // 팬캐릭터 세팅
     document.getElementById('c-img').src = CONFIG.character.img;
     document.getElementById('c-img').onerror = function() { this.src = "https://via.placeholder.com/220x260/e0f2fe/0284c7?text=Character"; };
     document.getElementById('c-name').innerText = CONFIG.character.name;
     document.getElementById('c-desc').innerHTML = CONFIG.character.desc;
 
-    // 4. 스케줄 세팅
+    // 스케줄 세팅
     const schedContainer = document.getElementById('schedule-container');
     function renderSchedule() {
       schedContainer.innerHTML = '';
@@ -339,7 +331,7 @@
     }
     renderSchedule();
 
-    // 카드 생성
+    // 카드 생성 함수
     function createPosterCard(item) {
       return `
         <div class="poster-card" onclick="openModal('${item.img}')">
@@ -348,24 +340,14 @@
         </div>`;
     }
 
-    // 5. 시그니처 풍 & 6. 옷장
+    // 시그니처 및 옷장 카드 렌더링
     CONFIG.signatures.forEach(item => document.getElementById('sig-grid').innerHTML += createPosterCard(item));
     CONFIG.closet.hair.forEach(item => document.getElementById('hair-grid').innerHTML += createPosterCard(item));
     CONFIG.closet.outfits.forEach(item => document.getElementById('outfit-grid').innerHTML += createPosterCard(item));
 
-    // 유틸리티
+    // 이동 및 모달 유틸
     function scrollToSection(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
     function openModal(src) { document.getElementById('modalImg').src = src; document.getElementById('imageModal').style.display = 'flex'; }
-
-    // 마우스 효과
-    const normalCards = document.querySelectorAll('.section-card:not(.closet-card)');
-    const closetCard = document.querySelector('.closet-card');
-    document.addEventListener('mousemove', (e) => {
-      const x = (window.innerWidth / 2 - e.pageX);
-      const y = (window.innerHeight / 2 - e.pageY);
-      normalCards.forEach(card => card.style.transform = `rotateY(${x / 60}deg) rotateX(${y / 60}deg)`);
-      if (closetCard) closetCard.style.transform = `rotateY(${x / 200}deg) rotateX(${y / 200}deg)`;
-    });
   </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- 📌 캐시 방지 메타 태그 (올바른 위치) -->
+  <!-- 📌 캐시 방지 메타 태그 -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -177,7 +177,7 @@
     }
     .day-box.active { background: #add1ff; color: white; font-weight: bold; }
 
-    /* 포스터 카드 */
+    /* 포스터 카드 및 격자 구조 */
     .poster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .poster-card {
       position: relative; border-radius: 14px; overflow: hidden;
@@ -190,10 +190,11 @@
       border-color: #add1ff;
     }
     .poster-card img { width: 100%; height: 100%; object-fit: cover; }
-    .card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%); color: white; }
-    .card-info .title { font-weight: bold; font-size: 14px; text-align: center; }
+    .card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 8px; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%); color: white; }
+    .card-info .title { font-weight: bold; font-size: 13px; text-align: center; }
 
-    .sig-card { aspect-ratio: 195 / 145; }
+    /* 📌 요청사항 반영: 시그니처 풍 비율을 가로 2 : 세로 1로 조정 */
+    .sig-card { aspect-ratio: 2 / 1; }
     .closet-card { aspect-ratio: 3 / 4; }
 
     .closet-category { margin-bottom: 20px; }
@@ -333,12 +334,12 @@
         outfits: [
           { title: "의상 A", img: "기본의상.png" },
           { title: "의상 B", img: "바니걸.png" },
-          { title: "의상 C", img: "outfit_c.png" }
+          { title: "의상 C", img: "의상로딩.png" }
         ],
         hair: [
           { title: "헤어 A", img: "기본헤어.png" },
           { title: "헤어 B", img: "포니테일.png" },
-          { title: "헤어 C", img: "hair_c.png" }
+          { title: "헤어 C", img: "헤어로딩.png" }
         ]
       }
     };

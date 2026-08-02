@@ -193,8 +193,10 @@
     .card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 8px; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%); color: white; }
     .card-info .title { font-weight: bold; font-size: 13px; text-align: center; }
 
-    /* 📌 요청사항 반영: 시그니처 풍 비율을 가로 2 : 세로 1로 조정 */
+    /* 📌 시그니처 풍: 가로 2 : 세로 1 비율 적용 및 하단 타이틀 숨기기 */
     .sig-card { aspect-ratio: 2 / 1; }
+    .sig-card .card-info { display: none; } /* 하단 텍스트(222, 777 등) 제거 */
+
     .closet-card { aspect-ratio: 3 / 4; }
 
     .closet-category { margin-bottom: 20px; }
@@ -334,12 +336,12 @@
         outfits: [
           { title: "의상 A", img: "기본의상.png" },
           { title: "의상 B", img: "바니걸.png" },
-          { title: "의상 C", img: "의상로딩.png" }
+          { title: "의상 C", img: "outfit_c.png" }
         ],
         hair: [
           { title: "헤어 A", img: "기본헤어.png" },
           { title: "헤어 B", img: "포니테일.png" },
-          { title: "헤어 C", img: "헤어로딩.png" }
+          { title: "헤어 C", img: "hair_c.png" }
         ]
       }
     };

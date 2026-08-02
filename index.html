@@ -193,9 +193,9 @@
     .card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 8px; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%); color: white; }
     .card-info .title { font-weight: bold; font-size: 13px; text-align: center; }
 
-    /* 📌 시그니처 풍: 가로 2 : 세로 1 비율 적용 및 하단 타이틀 숨기기 */
+    /* 📌 시그니처 풍: 가로 2 : 세로 1 비율 적용 및 하단 타이틀 상자 완전 숨김 */
     .sig-card { aspect-ratio: 2 / 1; }
-    .sig-card .card-info { display: none; } /* 하단 텍스트(222, 777 등) 제거 */
+    .sig-card .card-info { display: none !important; }
 
     .closet-card { aspect-ratio: 3 / 4; }
 
@@ -328,9 +328,9 @@
         { day: "일", status: "방송♥", active: true }
       ],
       signatures: [
-        { title: "222", img: "222.png" },
-        { title: "777", img: "sig2.png" },
-        { title: "1482", img: "sig3.png" }
+        { title: "", img: "222.png" },
+        { title: "", img: "sig2.png" },
+        { title: "", img: "sig3.png" }
       ],
       closet: {
         outfits: [

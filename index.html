@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <!-- 아래 3줄을 추가하여 브라우저와 SOOP 서버가 이 페이지를 캐시하지 못하게 강제합니다 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- 📌 캐시 방지 메타 태그 (올바른 위치) -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-</head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>haeunbi Profile</title>
+  
   <!-- 눈누 웹폰트: 여기어때 잘난체 + 고딕(Pretendard) -->
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  
   <style>
     @font-face {
       font-family: 'JalnanGothic';
@@ -93,7 +96,6 @@
     }
     .profile-img-box img { width: 100%; height: 100%; object-fit: cover; }
     
-    /* 하은비 이름: 고딕 적용 */
     .profile-name { 
       font-family: 'Pretendard', sans-serif;
       font-size: 32px; font-weight: 900; color: #1e293b; line-height: 1.1; 
@@ -107,7 +109,6 @@
       font-size: 15px; font-weight: 400; color: #475569; margin-top: 10px; margin-bottom: 16px; 
     }
 
-    /* 프로필 정보 2열 격자 배치 */
     .info-table-2col {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -119,7 +120,6 @@
       font-size: 15px; padding-bottom: 6px; border-bottom: 1.5px dashed #e2e8f0;
     }
     
-    /* 요청사항: 생일, 데뷔, 콘텐츠, 태그 - 볼드 제외 및 연한 색상 */
     .info-label { 
       width: 75px; 
       color: #8fa0b5; 
@@ -127,7 +127,6 @@
       font-family: 'Pretendard', sans-serif;
     }
     
-    /* 요청사항: 내용 텍스트 - 볼드 제외 및 연한 색상 지정 */
     .info-val { 
       color: #475569; 
       font-weight: 400; 
@@ -335,13 +334,12 @@
           { title: "의상 A", img: "기본의상.png" },
           { title: "의상 B", img: "바니걸.png" },
           { title: "의상 C", img: "outfit_c.png" }
-        ]
+        ],
         hair: [
           { title: "헤어 A", img: "기본헤어.png" },
           { title: "헤어 B", img: "포니테일.png" },
           { title: "헤어 C", img: "hair_c.png" }
-        ],
-      
+        ]
       }
     };
 

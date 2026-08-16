@@ -25,14 +25,14 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
     body {
-      background: #c0dcff;
+      background: transparent; /* 외부 배경 제거 */
       font-family: 'JalnanGothic', 'Pretendard', sans-serif;
       color: #2c3e50;
-      padding: 10px 0;
+      padding: 0; /* 배경 여백 전면 제거 */
+      width: 100%;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       align-items: center;
     }
 
@@ -42,14 +42,14 @@
       align-items: center; 
       justify-content: center;
       gap: 6px; 
-      margin-bottom: 10px; 
+      margin-bottom: 12px; 
       z-index: 1000;
       flex-wrap: wrap;
       width: 100%;
-      padding: 0 10px;
+      padding: 10px 0 0 0;
     }
     .nav-btn {
-      padding: 6px 12px; border: none; background: rgba(255, 255, 255, 0.9);
+      padding: 6px 14px; border: none; background: rgba(255, 255, 255, 0.95);
       color: #5a7b9c; font-weight: bold; font-size: 13px;
       border-radius: 14px; cursor: pointer; transition: all 0.2s ease;
       font-family: 'JalnanGothic', sans-serif;
@@ -57,46 +57,46 @@
     }
     .nav-btn:hover { background: #e0edff; color: #3a7bd5; }
 
-    /* 📌 레이아웃 */
+    /* 📌 레이아웃 (100% 꽉 차게 수정) */
     .container {
       width: 100%; 
-      max-width: 750px;
+      max-width: 100%; /* 너비 제한 해제 */
       display: flex; 
       flex-direction: column; 
-      gap: 10px; 
-      padding: 0 10px;
+      gap: 12px; 
+      padding: 0;
     }
 
     .section-card {
       background: rgba(255, 255, 255, 0.98);
-      border-radius: 14px; 
-      padding: 16px;
+      border-radius: 16px; 
+      padding: 20px 24px;
       box-shadow: 0 3px 12px rgba(0,0,0,0.04);
-      border: 1px solid #ffffff;
+      border: 1px solid #e2e8f0;
       width: 100%;
     }
 
     /* 📌 카테고리 헤더 */
     .card-title {
       font-family: 'Pretendard', sans-serif;
-      font-size: 14px; font-weight: 900; color: #508bf0;
-      margin-bottom: 12px; display: flex; align-items: center; gap: 6px;
-      border-bottom: 1.5px dashed #add1ff; padding-bottom: 4px;
+      font-size: 15px; font-weight: 900; color: #508bf0;
+      margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
+      border-bottom: 1.5px dashed #add1ff; padding-bottom: 6px;
       letter-spacing: 0.5px;
     }
     .card-title span {
-      font-size: 11px; color: #8ba8cc; font-weight: 700;
+      font-size: 12px; color: #8ba8cc; font-weight: 700;
     }
 
     /* 📌 프로필 영역 */
     .profile-grid {
       display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 16px;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
       align-items: center;
     }
     .profile-img-box {
-      width: 160px; height: 160px;
+      width: 170px; height: 170px;
       border-radius: 50%;
       overflow: hidden;
       border: 4px solid #add1ff;
@@ -109,31 +109,31 @@
     
     .profile-name { 
       font-family: 'Pretendard', sans-serif;
-      font-size: 24px; font-weight: 900; color: #1e293b; line-height: 1.1; 
+      font-size: 26px; font-weight: 900; color: #1e293b; line-height: 1.1; 
     }
     .profile-eng { 
       font-family: 'Pretendard', sans-serif;
-      font-size: 13px; font-weight: 600; color: #508bf0; margin-top: 2px; 
+      font-size: 14px; font-weight: 600; color: #508bf0; margin-top: 2px; 
     }
     .profile-bio { 
       font-family: 'Pretendard', sans-serif;
-      font-size: 13px; font-weight: 400; color: #475569; margin: 6px 0 10px 0; 
+      font-size: 14px; font-weight: 400; color: #475569; margin: 6px 0 12px 0; 
       word-break: keep-all;
     }
 
-    /* 2열 3행 정보 테이블 */
+    /* 2열 정보 테이블 */
     .info-table-2col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4px 12px;
-      margin-bottom: 8px;
+      gap: 6px 16px;
+      margin-bottom: 10px;
     }
     .info-cell {
       display: flex; align-items: center;
-      font-size: 13px; padding-bottom: 3px; border-bottom: 1px dashed #e2e8f0;
+      font-size: 13.5px; padding-bottom: 4px; border-bottom: 1px dashed #e2e8f0;
     }
     .info-label { 
-      width: 65px; 
+      width: 70px; 
       color: #8fa0b5; 
       font-weight: 400; 
       font-family: 'Pretendard', sans-serif;
@@ -148,7 +148,7 @@
     }
     .dday-badge { 
       background: #add1ff; color: #ffffff; font-weight: 700; 
-      padding: 1px 6px; border-radius: 8px; font-size: 11px; margin-left: 4px; 
+      padding: 1px 7px; border-radius: 8px; font-size: 11px; margin-left: 6px; 
       font-family: 'Pretendard', sans-serif;
       white-space: nowrap;
     }
@@ -157,15 +157,15 @@
     .pref-box {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 10px;
-      font-size: 12px;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 13px;
       font-family: 'Pretendard', sans-serif;
     }
     .pref-item { 
       background: #f8fafc; 
-      padding: 6px 8px; 
-      border-radius: 6px; 
+      padding: 8px 10px; 
+      border-radius: 8px; 
       border: 1px solid #e2e8f0; 
       color: #475569; 
       line-height: 1.4;
@@ -174,11 +174,11 @@
     .pref-item span { font-weight: 700; color: #508bf0; margin-right: 4px; }
 
     /* 📌 링크 버튼 */
-    .profile-links { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+    .profile-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
     .link-btn {
-      padding: 6px 12px; border-radius: 14px;
+      padding: 7px 16px; border-radius: 14px;
       background: #add1ff; color: white; text-decoration: none;
-      font-weight: bold; font-size: 12px; transition: all 0.2s;
+      font-weight: bold; font-size: 13px; transition: all 0.2s;
       display: inline-flex; align-items: center; gap: 4px;
       box-shadow: 0 2px 6px rgba(173, 209, 255, 0.4);
     }
@@ -187,38 +187,38 @@
     /* 팬캐릭터 영역 */
     .fan-grid {
       display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 16px;
+      grid-template-columns: 150px 1fr;
+      gap: 20px;
       align-items: center;
     }
     .char-img-box {
-      width: 130px; height: 119px;
+      width: 140px; height: 128px;
       border-radius: 12px; overflow: hidden;
       background: #f8fafc; border: 1.5px solid #e2e8f0;
       margin: 0 auto;
       flex-shrink: 0;
     }
-    .char-img-box img { width: 100%; height: 100%; object-fit: cover; }
+    .char-img-box img { width: 100%; height: 100%; object-fit: contain; }
     .char-desc-box { 
-      font-size: 13px; color: #475569; line-height: 1.4;
+      font-size: 14px; color: #475569; line-height: 1.4;
       font-family: 'Pretendard', sans-serif; font-weight: 400;
       word-break: keep-all;
     }
     .fixed-nick {
-      margin-top: 6px; font-size: 12px; color: #508bf0; font-weight: 700;
+      margin-top: 8px; font-size: 13px; color: #508bf0; font-weight: 700;
       font-family: 'Pretendard', sans-serif;
     }
 
     /* 스케줄 */
-    .schedule-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
+    .schedule-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center; }
     .day-box { 
-      background: #f1f5f9; padding: 8px 2px; border-radius: 8px; 
-      font-size: 12px; cursor: pointer; user-select: none; transition: all 0.2s; 
+      background: #f1f5f9; padding: 10px 4px; border-radius: 10px; 
+      font-size: 13px; cursor: pointer; user-select: none; transition: all 0.2s; 
     }
     .day-box.active { background: #add1ff; color: white; font-weight: bold; }
 
     /* 시그니처 풍 */
-    .poster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .poster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     .poster-card {
       position: relative; border-radius: 10px; overflow: hidden;
       background: #f8fafc; border: 1px solid #e2e8f0; cursor: pointer;
@@ -231,45 +231,6 @@
     /* 이미지 모달 */
     .image-modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; }
     .modal-content { max-width: 90%; max-height: 90%; border-radius: 14px; }
-
-    /* 📱 반응형 스타일 (화면 너비가 600px 이하일 때 대응) */
-    @media (max-width: 600px) {
-      .profile-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .profile-img-box {
-        width: 130px;
-        height: 130px;
-        margin-bottom: 10px;
-      }
-      .info-table-2col {
-        grid-template-columns: 1fr;
-      }
-      .pref-box {
-        grid-template-columns: 1fr;
-      }
-      .fan-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .char-img-box {
-        margin-bottom: 8px;
-      }
-      .profile-links {
-        justify-content: center;
-      }
-      .poster-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .schedule-grid {
-        gap: 3px;
-      }
-      .day-box {
-        padding: 6px 1px;
-        font-size: 11px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -325,7 +286,7 @@
           <img id="c-img" src="" alt="팬캐릭터">
         </div>
         <div>
-          <h3 id="c-name" style="font-size:15px; margin-bottom:4px; color:#508bf0; font-weight:800;"></h3>
+          <h3 id="c-name" style="font-size:16px; margin-bottom:4px; color:#508bf0; font-weight:800;"></h3>
           <div class="char-desc-box" id="c-desc"></div>
           <div class="fixed-nick" id="c-fixednick"></div>
         </div>
@@ -352,7 +313,6 @@
   </div>
 
   <script>
-    // 📌 데이터 설정 영역
     const CONFIG = {
       profile: {
         avatar: "VideoProject6-ezgif.com-video-to-gif-converter.gif",          
@@ -400,7 +360,7 @@
 
     function renderPage() {
       document.getElementById('p-avatar').src = CONFIG.profile.avatar;
-      document.getElementById('p-avatar').onerror = function() { this.src = "https://via.placeholder.com/160/add1ff/ffffff?text=Profile"; };
+      document.getElementById('p-avatar').onerror = function() { this.src = "https://via.placeholder.com/170/add1ff/ffffff?text=Profile"; };
       document.getElementById('p-name').innerText = CONFIG.profile.name;
       document.getElementById('p-engname').innerText = CONFIG.profile.engName;
       document.getElementById('p-bio').innerText = CONFIG.profile.bio;
@@ -428,7 +388,7 @@
       });
 
       document.getElementById('c-img').src = CONFIG.character.img;
-      document.getElementById('c-img').onerror = function() { this.src = "https://via.placeholder.com/130x119/add1ff/ffffff?text=Character"; };
+      document.getElementById('c-img').onerror = function() { this.src = "https://via.placeholder.com/140x128/add1ff/ffffff?text=Character"; };
       document.getElementById('c-name').innerText = CONFIG.character.name;
       document.getElementById('c-desc').innerHTML = CONFIG.character.desc;
       document.getElementById('c-fixednick').innerText = CONFIG.character.fixedNick;

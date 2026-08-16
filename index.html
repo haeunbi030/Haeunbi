@@ -25,10 +25,10 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
     body {
-      background: transparent; /* 외부 배경 제거 */
+      background: transparent;
       font-family: 'JalnanGothic', 'Pretendard', sans-serif;
       color: #2c3e50;
-      padding: 0; /* 배경 여백 전면 제거 */
+      padding: 0;
       width: 100%;
       min-height: 100vh;
       display: flex;
@@ -49,22 +49,22 @@
       padding: 10px 0 0 0;
     }
     .nav-btn {
-      padding: 6px 14px; border: none; background: rgba(255, 255, 255, 0.95);
+      padding: 6px 14px; border: 1.5px solid #c0dcff; background: rgba(255, 255, 255, 0.95);
       color: #5a7b9c; font-weight: bold; font-size: 13px;
       border-radius: 14px; cursor: pointer; transition: all 0.2s ease;
       font-family: 'JalnanGothic', sans-serif;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
-    .nav-btn:hover { background: #e0edff; color: #3a7bd5; }
+    .nav-btn:hover { background: #e0edff; color: #3a7bd5; border-color: #a0c8ff; }
 
-    /* 📌 레이아웃 (100% 꽉 차게 수정) */
+    /* 📌 레이아웃 */
     .container {
       width: 100%; 
-      max-width: 100%; /* 너비 제한 해제 */
+      max-width: 100%;
       display: flex; 
       flex-direction: column; 
       gap: 12px; 
-      padding: 0;
+      padding: 5px;
     }
 
     .section-card {
@@ -72,7 +72,7 @@
       border-radius: 16px; 
       padding: 20px 24px;
       box-shadow: 0 3px 12px rgba(0,0,0,0.04);
-      border: 1px solid #e2e8f0;
+      border: 2px solid #c0dcff; /* 하늘색 외곽선 적용 */
       width: 100%;
     }
 
@@ -81,7 +81,7 @@
       font-family: 'Pretendard', sans-serif;
       font-size: 15px; font-weight: 900; color: #508bf0;
       margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
-      border-bottom: 1.5px dashed #add1ff; padding-bottom: 6px;
+      border-bottom: 1.5px dashed #c0dcff; padding-bottom: 6px;
       letter-spacing: 0.5px;
     }
     .card-title span {
@@ -99,7 +99,7 @@
       width: 170px; height: 170px;
       border-radius: 50%;
       overflow: hidden;
-      border: 4px solid #add1ff;
+      border: 4px solid #c0dcff;
       margin: 0 auto;
       box-shadow: 0 4px 12px rgba(173, 209, 255, 0.35);
       background: #f8fafc;
@@ -130,7 +130,7 @@
     }
     .info-cell {
       display: flex; align-items: center;
-      font-size: 13.5px; padding-bottom: 4px; border-bottom: 1px dashed #e2e8f0;
+      font-size: 13.5px; padding-bottom: 4px; border-bottom: 1px dashed #c0dcff;
     }
     .info-label { 
       width: 70px; 
@@ -147,7 +147,7 @@
       word-break: break-all;
     }
     .dday-badge { 
-      background: #add1ff; color: #ffffff; font-weight: 700; 
+      background: #c0dcff; color: #ffffff; font-weight: 700; 
       padding: 1px 7px; border-radius: 8px; font-size: 11px; margin-left: 6px; 
       font-family: 'Pretendard', sans-serif;
       white-space: nowrap;
@@ -166,7 +166,7 @@
       background: #f8fafc; 
       padding: 8px 10px; 
       border-radius: 8px; 
-      border: 1px solid #e2e8f0; 
+      border: 1.5px solid #c0dcff; 
       color: #475569; 
       line-height: 1.4;
       word-break: keep-all;
@@ -180,32 +180,33 @@
       background: #add1ff; color: white; text-decoration: none;
       font-weight: bold; font-size: 13px; transition: all 0.2s;
       display: inline-flex; align-items: center; gap: 4px;
+      border: 1.5px solid #c0dcff;
       box-shadow: 0 2px 6px rgba(173, 209, 255, 0.4);
     }
     .link-btn:hover { background: #88b7ff; transform: translateY(-1px); }
 
-    /* 팬캐릭터 영역 */
+    /* 📌 팬캐릭터 영역 (크기 및 폰트 확대) */
     .fan-grid {
       display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 20px;
+      grid-template-columns: 200px 1fr; /* 그리드 영역 확대 */
+      gap: 24px;
       align-items: center;
     }
     .char-img-box {
-      width: 140px; height: 128px;
-      border-radius: 12px; overflow: hidden;
-      background: #f8fafc; border: 1.5px solid #e2e8f0;
+      width: 180px; height: 165px; /* 팬캐릭터 이미지 박스 크기 확대 */
+      border-radius: 14px; overflow: hidden;
+      background: #f8fafc; border: 2px solid #c0dcff; /* 하늘색 테두리 */
       margin: 0 auto;
       flex-shrink: 0;
     }
     .char-img-box img { width: 100%; height: 100%; object-fit: contain; }
     .char-desc-box { 
-      font-size: 14px; color: #475569; line-height: 1.4;
-      font-family: 'Pretendard', sans-serif; font-weight: 400;
+      font-size: 16px; color: #475569; line-height: 1.5; /* 폰트 크기 증가 (14px -> 16px) */
+      font-family: 'Pretendard', sans-serif; font-weight: 500;
       word-break: keep-all;
     }
     .fixed-nick {
-      margin-top: 8px; font-size: 13px; color: #508bf0; font-weight: 700;
+      margin-top: 10px; font-size: 15px; color: #508bf0; font-weight: 700; /* 폰트 크기 증가 (13px -> 15px) */
       font-family: 'Pretendard', sans-serif;
     }
 
@@ -214,18 +215,19 @@
     .day-box { 
       background: #f1f5f9; padding: 10px 4px; border-radius: 10px; 
       font-size: 13px; cursor: pointer; user-select: none; transition: all 0.2s; 
+      border: 1.5px solid #c0dcff; /* 하늘색 외곽선 */
     }
-    .day-box.active { background: #add1ff; color: white; font-weight: bold; }
+    .day-box.active { background: #add1ff; color: white; font-weight: bold; border-color: #88b7ff; }
 
     /* 시그니처 풍 */
     .poster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     .poster-card {
       position: relative; border-radius: 10px; overflow: hidden;
-      background: #f8fafc; border: 1px solid #e2e8f0; cursor: pointer;
+      background: #f8fafc; border: 1.5px solid #c0dcff; cursor: pointer; /* 하늘색 외곽선 */
       aspect-ratio: 2 / 1;
       transition: transform 0.2s ease;
     }
-    .poster-card:hover { transform: translateY(-2px); border-color: #add1ff; }
+    .poster-card:hover { transform: translateY(-2px); border-color: #508bf0; }
     .poster-card img { width: 100%; height: 100%; object-fit: cover; }
 
     /* 이미지 모달 */
@@ -286,7 +288,8 @@
           <img id="c-img" src="" alt="팬캐릭터">
         </div>
         <div>
-          <h3 id="c-name" style="font-size:16px; margin-bottom:4px; color:#508bf0; font-weight:800;"></h3>
+          <!-- 폰트 크기 확대 적용 -->
+          <h3 id="c-name" style="font-size:20px; margin-bottom:6px; color:#508bf0; font-weight:800;"></h3>
           <div class="char-desc-box" id="c-desc"></div>
           <div class="fixed-nick" id="c-fixednick"></div>
         </div>
@@ -318,14 +321,14 @@
         avatar: "VideoProject6-ezgif.com-video-to-gif-converter.gif",          
         name: "하은비",                   
         engName: "Haeunbi",              
-        bio: "프네아의 하은비에요🩵 나랑 같이 놀자", 
+        bio: "프네아의 하은비🩵 나랑 같이 놀자", 
         birthday: "1월 7일",
         debutDate: "2026-10-05",        
         contents: "저챗 · 종겜 · 롤",
         osimark: "🐰(토끼),🩵(하늘색 하트)",
         mbti: "ENTP (E,I/P,J반반 대문자T) ",
         blood: "AB형",
-        likes: "게임(잘 못함), 술(잘 못함), 귀여운거, 빵, 커피, 무서운거",
+        likes: "게임(잘 못함), 술(잘 못함), 귀여운거, 빵, 아아, 괴담",
         hates: "외로움, 추움, 매운 음식, 무례한 사람"
       },
       links: [
@@ -388,7 +391,7 @@
       });
 
       document.getElementById('c-img').src = CONFIG.character.img;
-      document.getElementById('c-img').onerror = function() { this.src = "https://via.placeholder.com/140x128/add1ff/ffffff?text=Character"; };
+      document.getElementById('c-img').onerror = function() { this.src = "https://via.placeholder.com/180x165/add1ff/ffffff?text=Character"; };
       document.getElementById('c-name').innerText = CONFIG.character.name;
       document.getElementById('c-desc').innerHTML = CONFIG.character.desc;
       document.getElementById('c-fixednick').innerText = CONFIG.character.fixedNick;

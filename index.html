@@ -36,7 +36,7 @@
       align-items: center;
     }
 
-    /* 📌 상단 네비게이션바 (간격 최소화) */
+    /* 📌 상단 네비게이션바 */
     .navbar {
       display: flex; align-items: center; justify-content: center;
       gap: 6px; margin-bottom: 10px; z-index: 1000;
@@ -50,7 +50,7 @@
     }
     .nav-btn:hover { background: #e0edff; color: #3a7bd5; }
 
-    /* 📌 레이아웃 (한눈에 들어오도록 슬림하게 설정) */
+    /* 📌 레이아웃 */
     .container {
       width: 100%; max-width: 750px;
       display: flex; flex-direction: column; gap: 8px; padding: 0 10px;
@@ -75,7 +75,7 @@
       font-size: 11px; color: #8ba8cc; font-weight: 700;
     }
 
-    /* 📌 프로필 영역 (확장된 이미지와 2열 3행 테이블) */
+    /* 📌 프로필 영역 */
     .profile-grid {
       display: grid;
       grid-template-columns: 160px 1fr;
@@ -106,7 +106,7 @@
       font-size: 13px; font-weight: 400; color: #475569; margin: 6px 0 10px 0; 
     }
 
-    /* 2열 3행 정보 테이블 (생일, 데뷔, 콘텐츠, 오시마크, MBTI, 혈액형) */
+    /* 2열 3행 정보 테이블 */
     .info-table-2col {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -158,20 +158,20 @@
     }
     .link-btn:hover { background: #88b7ff; transform: translateY(-1px); }
 
-    /* 팬캐릭터 영역 */
+    /* 팬캐릭터 영역 (2180:2000 비율에 맞게 가로폭 확장) */
     .fan-grid {
       display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 14px;
+      grid-template-columns: 130px 1fr;
+      gap: 16px;
       align-items: center;
     }
     .char-img-box {
-      width: 90px; height: 90px;
+      width: 130px; height: 119px; /* 2180:2000 가로세로 비율 적용 */
       border-radius: 12px; overflow: hidden;
       background: #f8fafc; border: 1.5px solid #e2e8f0;
       margin: 0 auto;
     }
-    .char-img-box img { width: 100%; height: 100%; object-fit: contain; }
+    .char-img-box img { width: 100%; height: 100%; object-fit: cover; }
     .char-desc-box { 
       font-size: 13px; color: #475569; line-height: 1.4;
       font-family: 'Pretendard', sans-serif; font-weight: 400;
@@ -189,7 +189,7 @@
     }
     .day-box.active { background: #add1ff; color: white; font-weight: bold; }
 
-    /* 시그니처 풍 (2줄 3개씩 총 6개 격자) */
+    /* 시그니처 풍 (총 6개, 2줄 구조) */
     .poster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .poster-card {
       position: relative; border-radius: 10px; overflow: hidden;
@@ -231,7 +231,6 @@
             <div class="profile-bio" id="p-bio"></div>
           </div>
           
-          <!-- 순서: 생일, 데뷔, 콘텐츠, 오시마크, MBTI, 혈액형 -->
           <div class="info-table-2col">
             <div class="info-cell"><span class="info-label">생일</span><span class="info-val" id="p-birthday"></span></div>
             <div class="info-cell"><span class="info-label">데뷔</span><span class="info-val"><span id="p-debut"></span><span class="dday-badge" id="p-dday"></span></span></div>
@@ -241,13 +240,11 @@
             <div class="info-cell"><span class="info-label">혈액형</span><span class="info-val" id="p-blood"></span></div>
           </div>
 
-          <!-- 좋아하는 것 / 싫어하는 것 -->
           <div class="pref-box">
             <div class="pref-item"><span>❤️ 좋아함:</span> <span id="p-likes"></span></div>
             <div class="pref-item"><span>❌ 싫어함:</span> <span id="p-hates"></span></div>
           </div>
 
-          <!-- 링크 버튼 (방송국, 트위터, 룰렛 확률 포함) -->
           <div class="profile-links" id="link-container"></div>
         </div>
       </div>
@@ -274,7 +271,7 @@
       <div class="schedule-grid" id="schedule-container"></div>
     </section>
 
-    <!-- 4. 시그니처 풍 섹션 (총 6개, 2줄 구조) -->
+    <!-- 4. 시그니처 풍 섹션 -->
     <section id="sigballoon" class="section-card">
       <div class="card-title">SIGNATURE BALLOON <span>시그니처풍</span></div>
       <div class="poster-grid" id="sig-grid"></div>
@@ -288,7 +285,7 @@
   </div>
 
   <script>
-    // 📌 데이터 설정 영역 (필요한 내용을 직접 수정하시면 즉시 반영됩니다)
+    // 📌 데이터 설정 영역 (이곳의 내용만 수정하시면 됩니다)
     const CONFIG = {
       profile: {
         avatar: "VideoProject6-ezgif.com-video-to-gif-converter.gif",          
@@ -297,23 +294,23 @@
         bio: "프네아의 하은비에요🩵 나랑 같이 놀자", 
         birthday: "1월 7일",
         debutDate: "2026-10-05",        
-        contents: "저챗 · 게임 · 롤",
-        osimark: "🐰🩵",
-        mbti: "ENFP",
-        blood: "O형",
-        likes: "디저트, 방송",
-        hates: "벌레, 공포"
+        contents: "저챗 · 종겜 · 롤",
+        osimark: "🐰(토끼),🩵(하늘색 하트)",
+        mbti: "ENTP (E,I/P,J반반 대문자T) ",
+        blood: "AB형",
+        likes: "게임(잘 못함), 술(잘 못함), 귀여운거, 빵, 커피, 무서운거",
+        hates: "외로움, 추움, 매운 음식, 무례한 사람"
       },
       links: [
         { title: "SOOP 방송국", url: "https://www.sooplive.com/station/haeunbi" },
         { title: "트위터 (X)", url: "https://x.com/Fnea_eunbi" },
-        { title: "룰렛 확률", url: "https://your-roulette-url-here.com" } // 룰렛 확률 링크 수정 가능
+        { title: "룰렛 확률", url: "https://your-roulette-url-here.com" }
       ],
       character: {
-        img: "fan.png",                     
+        img: "비비 앞뒤",                     
         name: "비비 (BIBI)",            
         desc: "은비가 매일 안고자는 보들보들한 토끼인형🩵",
-        fixedNick: "고정닉: ꒰ᏼᏼ꒱닉네임" // 고정닉 내용 수정 가능
+        fixedNick: "고정닉: ꒰ᏼᏼ꒱닉네임"
       },
       schedule: [
         { day: "월", status: "방송♥", active: true },
@@ -325,7 +322,7 @@
         { day: "일", status: "방송♥", active: true }
       ],
       signatures: [
-        { img: "222.png" },
+        { img: "122.png" },
         { img: "sig2.png" },
         { img: "sig3.png" },
         { img: "sig4.png" },
@@ -364,7 +361,7 @@
       });
 
       document.getElementById('c-img').src = CONFIG.character.img;
-      document.getElementById('c-img').onerror = function() { this.src = "https://via.placeholder.com/90/add1ff/ffffff?text=Character"; };
+      document.getElementById('c-img').onerror = function() { this.src = "https://via.placeholder.com/130x119/add1ff/ffffff?text=Character"; };
       document.getElementById('c-name').innerText = CONFIG.character.name;
       document.getElementById('c-desc').innerHTML = CONFIG.character.desc;
       document.getElementById('c-fixednick').innerText = CONFIG.character.fixedNick;

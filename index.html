@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- 📌 캐시 방지 메타 태그 -->
+
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
   <title>haeunbi Profile</title>
-  
-  <!-- 눈누 웹폰트: 여기어때 잘난체 + 고딕(Pretendard) -->
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  
+
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
   <style>
+
     @font-face {
       font-family: 'JalnanGothic';
       src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonnu_231029@1.1/JalnanGothic.woff2') format('woff2');
@@ -22,8 +22,19 @@
       font-style: normal;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       background: transparent;
       font-family: 'JalnanGothic', 'Pretendard', sans-serif;
@@ -36,67 +47,97 @@
       align-items: center;
     }
 
-    /* 📌 상단 네비게이션바 */
+    /* 상단 네비게이션 */
     .navbar {
-      display: flex; 
-      align-items: center; 
+      display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 6px; 
-      margin-bottom: 12px; 
+      gap: 6px;
+      margin-bottom: 12px;
       z-index: 1000;
       flex-wrap: wrap;
       width: 100%;
       padding: 10px 0 0 0;
     }
+
     .nav-btn {
-      padding: 6px 14px; border: 1.5px solid #c0dcff; background: rgba(255, 255, 255, 0.95);
-      color: #5a7b9c; font-weight: bold; font-size: 13px;
-      border-radius: 14px; cursor: pointer; transition: all 0.2s ease;
+      padding: 6px 14px;
+      border: 1.5px solid #c0dcff;
+      background: rgba(255, 255, 255, 0.95);
+      color: #5a7b9c;
+      font-weight: bold;
+      font-size: 13px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
       font-family: 'JalnanGothic', sans-serif;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
-    .nav-btn:hover { background: #e0edff; color: #3a7bd5; border-color: #a0c8ff; }
 
-    /* 📌 레이아웃 */
+    .nav-btn:hover {
+      background: #e0edff;
+      color: #3a7bd5;
+      border-color: #a0c8ff;
+    }
+
+    /* 전체 컨테이너 */
     .container {
-      width: 100%; 
+      width: 100%;
       max-width: 100%;
-      display: flex; 
-      flex-direction: column; 
-      gap: 12px; 
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       padding: 7px;
     }
 
+    /* 카드 */
     .section-card {
       background: rgba(255, 255, 255, 0.98);
-      border-radius: 16px; 
+      border-radius: 16px;
       padding: 20px 24px;
       box-shadow: 0 3px 12px rgba(0,0,0,0.04);
-      border: 2px solid #c0dcff; /* 하늘색 외곽선 적용 */
+      border: 2px solid #c0dcff;
       width: 100%;
     }
 
-    /* 📌 카테고리 헤더 */
+    /* 제목 */
     .card-title {
       font-family: 'Pretendard', sans-serif;
-      font-size: 15px; font-weight: 900; color: #508bf0;
-      margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
-      border-bottom: 1.5px dashed #c0dcff; padding-bottom: 6px;
+      font-size: 15px;
+      font-weight: 900;
+      color: #508bf0;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1.5px dashed #c0dcff;
+      padding-bottom: 6px;
       letter-spacing: 0.5px;
     }
+
     .card-title span {
-      font-size: 12px; color: #8ba8cc; font-weight: 700;
+      font-size: 12px;
+      color: #8ba8cc;
+      font-weight: 700;
     }
 
-    /* 📌 프로필 영역 */
+    /* =========================
+       프로필
+       ========================= */
+
+    /* ★ 수정: 180px → 220px
+       이미지와 글자가 겹치지 않도록 이미지 영역을 실제 이미지 크기와 동일하게 설정 */
     .profile-grid {
       display: grid;
-      grid-template-columns: 180px 1fr;
+      grid-template-columns: 220px minmax(0, 1fr);
       gap: 20px;
       align-items: center;
+      width: 100%;
     }
+
     .profile-img-box {
-      width: 220px; height: 220px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       overflow: hidden;
       border: 4px solid #c0dcff;
@@ -105,55 +146,91 @@
       background: #f8fafc;
       flex-shrink: 0;
     }
-    .profile-img-box img { width: 100%; height: 100%; object-fit: cover; }
-    
-    .profile-name { 
-      font-family: 'Pretendard', sans-serif;
-      font-size: 26px; font-weight: 900; color: #1e293b; line-height: 1.1; 
+
+    .profile-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
-    .profile-eng { 
-      font-family: 'Pretendard', sans-serif;
-      font-size: 14px; font-weight: 600; color: #508bf0; margin-top: 2px; 
+
+    .profile-header {
+      min-width: 0;
     }
-    .profile-bio { 
+
+    .profile-name {
       font-family: 'Pretendard', sans-serif;
-      font-size: 14px; font-weight: 400; color: #475569; margin: 6px 0 12px 0; 
+      font-size: 26px;
+      font-weight: 900;
+      color: #1e293b;
+      line-height: 1.1;
+    }
+
+    .profile-eng {
+      font-family: 'Pretendard', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #508bf0;
+      margin-top: 2px;
+    }
+
+    .profile-bio {
+      font-family: 'Pretendard', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #475569;
+      margin: 6px 0 12px 0;
       word-break: keep-all;
     }
 
-    /* 2열 정보 테이블 */
+    /* 정보 테이블 */
     .info-table-2col {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6px 16px;
       margin-bottom: 10px;
+      width: 100%;
     }
+
     .info-cell {
-      display: flex; align-items: center;
-      font-size: 13.5px; padding-bottom: 4px; border-bottom: 1px dashed #c0dcff;
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      font-size: 13.5px;
+      padding-bottom: 4px;
+      border-bottom: 1px dashed #c0dcff;
     }
-    .info-label { 
-      width: 70px; 
-      color: #8fa0b5; 
-      font-weight: 400; 
+
+    .info-label {
+      width: 70px;
+      color: #8fa0b5;
+      font-weight: 400;
       font-family: 'Pretendard', sans-serif;
       flex-shrink: 0;
     }
-    .info-val { 
-      color: #475569; 
-      font-weight: 400; 
+
+    .info-val {
+      color: #475569;
+      font-weight: 400;
       font-family: 'Pretendard', sans-serif;
-      flex: 1; 
+      flex: 1;
+      min-width: 0;
       word-break: break-all;
     }
-    .dday-badge { 
-      background: #c0dcff; color: #ffffff; font-weight: 700; 
-      padding: 1px 7px; border-radius: 8px; font-size: 11px; margin-left: 6px; 
+
+    .dday-badge {
+      background: #c0dcff;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 8px;
+      font-size: 11px;
+      margin-left: 6px;
       font-family: 'Pretendard', sans-serif;
       white-space: nowrap;
     }
 
-    /* 좋아하는 것 / 싫어하는 것 스타일 */
+    /* 좋아요 / 싫어요 */
     .pref-box {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -162,82 +239,248 @@
       font-size: 13px;
       font-family: 'Pretendard', sans-serif;
     }
-    .pref-item { 
-      background: #f8fafc; 
-      padding: 8px 10px; 
-      border-radius: 8px; 
-      border: 1.5px solid #c0dcff; 
-      color: #475569; 
+
+    .pref-item {
+      background: #f8fafc;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1.5px solid #c0dcff;
+      color: #475569;
       line-height: 1.4;
       word-break: keep-all;
     }
-    .pref-item span { font-weight: 700; color: #508bf0; margin-right: 4px; }
 
-    /* 📌 링크 버튼 */
-    .profile-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+    .pref-item span {
+      font-weight: 700;
+      color: #508bf0;
+      margin-right: 4px;
+    }
+
+    /* 링크 */
+    .profile-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
     .link-btn {
-      padding: 7px 16px; border-radius: 14px;
-      background: #add1ff; color: white; text-decoration: none;
-      font-weight: bold; font-size: 13px; transition: all 0.2s;
-      display: inline-flex; align-items: center; gap: 4px;
+      padding: 7px 16px;
+      border-radius: 14px;
+      background: #add1ff;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 13px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       border: 1.5px solid #c0dcff;
       box-shadow: 0 2px 6px rgba(173, 209, 255, 0.4);
     }
-    .link-btn:hover { background: #88b7ff; transform: translateY(-1px); }
 
-    /* 📌 팬캐릭터 영역 (크기 및 폰트 확대) */
+    .link-btn:hover {
+      background: #88b7ff;
+      transform: translateY(-1px);
+    }
+
+    /* =========================
+       팬캐릭터
+       ========================= */
+
     .fan-grid {
       display: grid;
-      grid-template-columns: 200px 1fr; /* 그리드 영역 확대 */
+      grid-template-columns: 200px minmax(0, 1fr);
       gap: 24px;
       align-items: center;
     }
+
     .char-img-box {
-      width: 200px; height: 185px; /* 팬캐릭터 이미지 박스 크기 확대 */
-      border-radius: 14px; overflow: hidden;
-      background: #f8fafc; border: 2px solid #c0dcff; /* 하늘색 테두리 */
+      width: 200px;
+      height: 185px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f8fafc;
+      border: 2px solid #c0dcff;
       margin: 0 auto;
       flex-shrink: 0;
     }
-    .char-img-box img { width: 100%; height: 100%; object-fit: contain; }
-    .char-desc-box { 
-      font-size: 16px; color: #475569; line-height: 1.5; /* 폰트 크기 증가 (14px -> 16px) */
-      font-family: 'Pretendard', sans-serif; font-weight: 500;
+
+    .char-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .char-desc-box {
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.5;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 500;
       word-break: keep-all;
     }
+
     .fixed-nick {
-      margin-top: 10px; font-size: 15px; color: #508bf0; font-weight: 700; /* 폰트 크기 증가 (13px -> 15px) */
+      margin-top: 10px;
+      font-size: 15px;
+      color: #508bf0;
+      font-weight: 700;
       font-family: 'Pretendard', sans-serif;
     }
 
-    /* 스케줄 */
-    .schedule-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center; }
-    .day-box { 
-      background: #f1f5f9; padding: 10px 4px; border-radius: 10px; 
-      font-size: 13px; cursor: pointer; user-select: none; transition: all 0.2s; 
-      border: 1.5px solid #c0dcff; /* 하늘색 외곽선 */
-    }
-    .day-box.active { background: #add1ff; color: white; font-weight: bold; border-color: #88b7ff; }
+    /* =========================
+       스케줄
+       ========================= */
 
-    /* 시그니처 풍 */
-    .poster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      text-align: center;
+    }
+
+    .day-box {
+      background: #f1f5f9;
+      padding: 10px 4px;
+      border-radius: 10px;
+      font-size: 13px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s;
+      border: 1.5px solid #c0dcff;
+    }
+
+    .day-box.active {
+      background: #add1ff;
+      color: white;
+      font-weight: bold;
+      border-color: #88b7ff;
+    }
+
+    /* =========================
+       시그니처풍
+       ========================= */
+
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
     .poster-card {
-      position: relative; border-radius: 10px; overflow: hidden;
-      background: #f8fafc; border: 1.5px solid #c0dcff; cursor: pointer; /* 하늘색 외곽선 */
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #f8fafc;
+      border: 1.5px solid #c0dcff;
+      cursor: pointer;
       aspect-ratio: 2 / 1;
       transition: transform 0.2s ease;
     }
-    .poster-card:hover { transform: translateY(-2px); border-color: #508bf0; }
-    .poster-card img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* 이미지 모달 */
-    .image-modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; }
-    .modal-content { max-width: 90%; max-height: 90%; border-radius: 14px; }
+    .poster-card:hover {
+      transform: translateY(-2px);
+      border-color: #508bf0;
+    }
+
+    .poster-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 이미지 확대 */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 14px;
+    }
+
+    /* =========================
+       모바일
+       ========================= */
+
+    @media screen and (max-width: 700px) {
+
+      .section-card {
+        padding: 16px;
+      }
+
+      .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .profile-img-box {
+        width: 180px;
+        height: 180px;
+      }
+
+      .profile-name,
+      .profile-eng,
+      .profile-bio {
+        text-align: center;
+      }
+
+      .info-table-2col {
+        grid-template-columns: 1fr;
+      }
+
+      .pref-box {
+        grid-template-columns: 1fr;
+      }
+
+      .fan-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .char-img-box {
+        width: 180px;
+        height: 165px;
+      }
+
+      .poster-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .schedule-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .navbar {
+        gap: 4px;
+      }
+
+      .nav-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
-  <!-- 📌 상단 네비게이션 -->
+  <!-- 상단 네비게이션 -->
   <nav class="navbar">
     <button class="nav-btn" onclick="scrollToSection('profile')">프로필</button>
     <button class="nav-btn" onclick="scrollToSection('character')">팬캐릭터</button>
@@ -247,189 +490,342 @@
 
   <div class="container">
 
-    <!-- 1. 프로필 섹션 -->
+    <!-- =========================
+         1. 프로필
+         ========================= -->
+
     <section id="profile" class="section-card">
-      <div class="card-title">PROFILE <span>프로필</span></div>
+
+      <div class="card-title">
+        PROFILE
+        <span>프로필</span>
+      </div>
+
       <div class="profile-grid">
+
         <div class="profile-img-box">
-          <img id="p-avatar" src="" alt="프로필">
+          <img
+            id="p-avatar"
+            src="VideoProject6-ezgif.com-video-to-gif-converter.gif"
+            alt="프로필">
         </div>
+
         <div>
+
           <div class="profile-header">
-            <div class="profile-name" id="p-name"></div>
-            <div class="profile-eng" id="p-engname"></div>
-            <div class="profile-bio" id="p-bio"></div>
+
+            <div class="profile-name">
+              하은비
+            </div>
+
+            <div class="profile-eng">
+              Haeunbi
+            </div>
+
+            <div class="profile-bio">
+              프네아의 하은비🩵 나랑 같이 놀자
+            </div>
+
           </div>
-          
+
           <div class="info-table-2col">
-            <div class="info-cell"><span class="info-label">생일</span><span class="info-val" id="p-birthday"></span></div>
-            <div class="info-cell"><span class="info-label">데뷔</span><span class="info-val"><span id="p-debut"></span><span class="dday-badge" id="p-dday"></span></span></div>
-            <div class="info-cell"><span class="info-label">콘텐츠</span><span class="info-val" id="p-contents"></span></div>
-            <div class="info-cell"><span class="info-label">오시마크</span><span class="info-val" id="p-osimark"></span></div>
-            <div class="info-cell"><span class="info-label">MBTI</span><span class="info-val" id="p-mbti"></span></div>
-            <div class="info-cell"><span class="info-label">혈액형</span><span class="info-val" id="p-blood"></span></div>
+
+            <div class="info-cell">
+              <span class="info-label">생일</span>
+              <span class="info-val">1월 7일</span>
+            </div>
+
+            <div class="info-cell">
+              <span class="info-label">데뷔</span>
+              <span class="info-val">
+                2026-10-05
+                <span class="dday-badge" id="p-dday"></span>
+              </span>
+            </div>
+
+            <div class="info-cell">
+              <span class="info-label">콘텐츠</span>
+              <span class="info-val">저챗 · 종겜 · 롤</span>
+            </div>
+
+            <div class="info-cell">
+              <span class="info-label">오시마크</span>
+              <span class="info-val">🐰(토끼), 🩵(하늘색 하트)</span>
+            </div>
+
+            <div class="info-cell">
+              <span class="info-label">MBTI</span>
+              <span class="info-val">ENTP (E,I/P,J반반 대문자T)</span>
+            </div>
+
+            <div class="info-cell">
+              <span class="info-label">혈액형</span>
+              <span class="info-val">AB형</span>
+            </div>
+
           </div>
 
           <div class="pref-box">
-            <div class="pref-item"><span>❤️ 좋아:</span> <span id="p-likes"></span></div>
-            <div class="pref-item"><span>❌ 싫어:</span> <span id="p-hates"></span></div>
+
+            <div class="pref-item">
+              <span>❤️ 좋아:</span>
+              게임(잘 못함), 술(잘 못함), 귀여운거, 빵, 아아, 괴담
+            </div>
+
+            <div class="pref-item">
+              <span>❌ 싫어:</span>
+              외로움, 추움, 매운 음식, 무례한 사람
+            </div>
+
           </div>
 
-          <div class="profile-links" id="link-container"></div>
+          <div class="profile-links">
+
+            <a
+              href="https://www.sooplive.com/station/haeunbi"
+              target="_blank"
+              class="link-btn">
+              🔗 SOOP 방송국
+            </a>
+
+            <a
+              href="https://x.com/Fnea_eunbi"
+              target="_blank"
+              class="link-btn">
+              🔗 트위터 (X)
+            </a>
+
+            <a
+              href="https://your-roulette-url-here.com"
+              target="_blank"
+              class="link-btn">
+              🔗 룰렛 확률
+            </a>
+
+          </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- 2. 팬캐릭터 섹션 -->
+
+    <!-- =========================
+         2. 팬캐릭터
+         ========================= -->
+
     <section id="character" class="section-card">
-      <div class="card-title">FAN CHARACTER <span>팬캐릭터</span></div>
-      <div class="fan-grid">
-        <div class="char-img-box">
-          <img id="c-img" src="" alt="팬캐릭터">
-        </div>
-        <div>
-          <!-- 폰트 크기 확대 적용 -->
-          <h3 id="c-name" style="font-size:20px; margin-bottom:6px; color:#508bf0; font-weight:800;"></h3>
-          <div class="char-desc-box" id="c-desc"></div>
-          <div class="fixed-nick" id="c-fixednick"></div>
-        </div>
+
+      <div class="card-title">
+        FAN CHARACTER
+        <span>팬캐릭터</span>
       </div>
+
+      <div class="fan-grid">
+
+        <div class="char-img-box">
+          <img
+            src="비비 앞뒤.png"
+            alt="팬캐릭터">
+        </div>
+
+        <div>
+
+          <h3 style="
+            font-size:20px;
+            margin-bottom:6px;
+            color:#508bf0;
+            font-weight:800;
+          ">
+            비비 (BIBI)
+          </h3>
+
+          <div class="char-desc-box">
+            은비가 매일 안고자는 보들보들한 토끼인형🩵
+          </div>
+
+          <div class="fixed-nick">
+            고정닉: ꒰ᏼᏼ꒱닉네임
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
 
-    <!-- 3. 스케줄 섹션 -->
+
+    <!-- =========================
+         3. 스케줄
+         ========================= -->
+
     <section id="schedule" class="section-card">
-      <div class="card-title">SCHEDULE <span>이번주 스케줄</span></div>
-      <div class="schedule-grid" id="schedule-container"></div>
+
+      <div class="card-title">
+        SCHEDULE
+        <span>이번주 스케줄</span>
+      </div>
+
+      <div class="schedule-grid">
+
+        <div class="day-box active" onclick="toggleSchedule(this)">
+          <div>월</div>
+          <div style="margin-top:2px;">방송♥</div>
+        </div>
+
+        <div class="day-box active" onclick="toggleSchedule(this)">
+          <div>화</div>
+          <div style="margin-top:2px;">방송♥</div>
+        </div>
+
+        <div class="day-box active" onclick="toggleSchedule(this)">
+          <div>수</div>
+          <div style="margin-top:2px;">방송♥</div>
+        </div>
+
+        <div class="day-box" onclick="toggleSchedule(this)">
+          <div>목</div>
+          <div style="margin-top:2px;">휴방</div>
+        </div>
+
+        <div class="day-box active" onclick="toggleSchedule(this)">
+          <div>금</div>
+          <div style="margin-top:2px;">방송♥</div>
+        </div>
+
+        <div class="day-box" onclick="toggleSchedule(this)">
+          <div>토</div>
+          <div style="margin-top:2px;">휴방</div>
+        </div>
+
+        <div class="day-box active" onclick="toggleSchedule(this)">
+          <div>일</div>
+          <div style="margin-top:2px;">방송♥</div>
+        </div>
+
+      </div>
+
     </section>
 
-    <!-- 4. 시그니처 풍 섹션 -->
+
+    <!-- =========================
+         4. 시그니처풍
+         ========================= -->
+
     <section id="sigballoon" class="section-card">
-      <div class="card-title">SIGNATURE BALLOON <span>시그니처풍</span></div>
-      <div class="poster-grid" id="sig-grid"></div>
+
+      <div class="card-title">
+        SIGNATURE BALLOON
+        <span>시그니처풍</span>
+      </div>
+
+      <div class="poster-grid">
+
+        <div class="poster-card" onclick="openModal('122.png')">
+          <img src="122.png" alt="시그니처풍">
+        </div>
+
+        <div class="poster-card" onclick="openModal('sig2.png')">
+          <img src="sig2.png" alt="시그니처풍">
+        </div>
+
+        <div class="poster-card" onclick="openModal('sig3.png')">
+          <img src="sig3.png" alt="시그니처풍">
+        </div>
+
+        <div class="poster-card" onclick="openModal('sig4.png')">
+          <img src="sig4.png" alt="시그니처풍">
+        </div>
+
+        <div class="poster-card" onclick="openModal('sig5.png')">
+          <img src="sig5.png" alt="시그니처풍">
+        </div>
+
+        <div class="poster-card" onclick="openModal('sig6.png')">
+          <img src="sig6.png" alt="시그니처풍">
+        </div>
+
+      </div>
+
     </section>
 
   </div>
 
-  <!-- 이미지 모달 -->
-  <div class="image-modal" id="imageModal" onclick="this.style.display='none'">
-    <img class="modal-content" id="modalImg">
+
+  <!-- 이미지 확대 모달 -->
+
+  <div
+    class="image-modal"
+    id="imageModal"
+    onclick="this.style.display='none'">
+
+    <img
+      class="modal-content"
+      id="modalImg"
+      alt="확대 이미지">
+
   </div>
+
 
   <script>
-    const CONFIG = {
-      profile: {
-        avatar: "VideoProject6-ezgif.com-video-to-gif-converter.gif",          
-        name: "하은비",                   
-        engName: "Haeunbi",              
-        bio: "프네아의 하은비🩵 나랑 같이 놀자", 
-        birthday: "1월 7일",
-        debutDate: "2026-10-05",        
-        contents: "저챗 · 종겜 · 롤",
-        osimark: "🐰(토끼),🩵(하늘색 하트)",
-        mbti: "ENTP (E,I/P,J반반 대문자T) ",
-        blood: "AB형",
-        likes: "게임(잘 못함), 술(잘 못함), 귀여운거, 빵, 아아, 괴담",
-        hates: "외로움, 추움, 매운 음식, 무례한 사람"
-      },
-      links: [
-        { title: "SOOP 방송국", url: "https://www.sooplive.com/station/haeunbi" },
-        { title: "트위터 (X)", url: "https://x.com/Fnea_eunbi" },
-        { title: "룰렛 확률", url: "https://your-roulette-url-here.com" }
-      ],
-      character: {
-        img: "비비 앞뒤.png",                     
-        name: "비비 (BIBI)",            
-        desc: "은비가 매일 안고자는 보들보들한 토끼인형🩵",
-        fixedNick: "고정닉: ꒰ᏼᏼ꒱닉네임"
-      },
-      schedule: [
-        { day: "월", status: "방송♥", active: true },
-        { day: "화", status: "방송♥", active: true },
-        { day: "수", status: "방송♥", active: true },
-        { day: "목", status: "방송♥", active: false },
-        { day: "금", status: "휴방", active: true },
-        { day: "토", status: "휴방", active: false },
-        { day: "일", status: "방송♥", active: true }
-      ],
-      signatures: [
-        { img: "122.png" },
-        { img: "sig2.png" },
-        { img: "sig3.png" },
-        { img: "sig4.png" },
-        { img: "sig5.png" },
-        { img: "sig6.png" }
-      ]
-    };
 
-    function renderPage() {
-      document.getElementById('p-avatar').src = CONFIG.profile.avatar;
-      document.getElementById('p-avatar').onerror = function() { this.src = "https://via.placeholder.com/170/add1ff/ffffff?text=Profile"; };
-      document.getElementById('p-name').innerText = CONFIG.profile.name;
-      document.getElementById('p-engname').innerText = CONFIG.profile.engName;
-      document.getElementById('p-bio').innerText = CONFIG.profile.bio;
-      document.getElementById('p-birthday').innerText = CONFIG.profile.birthday;
-      document.getElementById('p-debut').innerText = CONFIG.profile.debutDate;
-      document.getElementById('p-contents').innerText = CONFIG.profile.contents;
-      document.getElementById('p-osimark').innerText = CONFIG.profile.osimark;
-      document.getElementById('p-mbti').innerText = CONFIG.profile.mbti;
-      document.getElementById('p-blood').innerText = CONFIG.profile.blood;
-      document.getElementById('p-likes').innerText = CONFIG.profile.likes;
-      document.getElementById('p-hates').innerText = CONFIG.profile.hates;
+    /* 데뷔 D-Day */
 
-      if (CONFIG.profile.debutDate) {
-        const debut = new Date(CONFIG.profile.debutDate);
-        const today = new Date();
-        const diffTime = Math.abs(today - debut);
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
-        document.getElementById('p-dday').innerText = `D+${diffDays}일`;
+    const debut = new Date("2026-10-05");
+    const today = new Date();
+
+    const diffTime = Math.abs(today - debut);
+    const diffDays =
+      Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+    document.getElementById("p-dday").innerText =
+      "D+" + diffDays + "일";
+
+
+    /* 메뉴 이동 */
+
+    function scrollToSection(id) {
+
+      const element = document.getElementById(id);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth"
+        });
       }
 
-      const linkBox = document.getElementById('link-container');
-      linkBox.innerHTML = '';
-      CONFIG.links.forEach(l => {
-        linkBox.innerHTML += `<a href="${l.url}" target="_blank" class="link-btn">🔗 ${l.title}</a>`;
-      });
-
-      document.getElementById('c-img').src = CONFIG.character.img;
-      document.getElementById('c-img').onerror = function() { this.src = "https://via.placeholder.com/180x165/add1ff/ffffff?text=Character"; };
-      document.getElementById('c-name').innerText = CONFIG.character.name;
-      document.getElementById('c-desc').innerHTML = CONFIG.character.desc;
-      document.getElementById('c-fixednick').innerText = CONFIG.character.fixedNick;
-
-      renderSchedule();
-
-      const sigGrid = document.getElementById('sig-grid');
-      sigGrid.innerHTML = '';
-      CONFIG.signatures.forEach(item => {
-        sigGrid.innerHTML += `
-          <div class="poster-card" onclick="openModal('${item.img}')">
-            <img src="${item.img}" onerror="this.src='https://via.placeholder.com/200x100/e2e8f0/334155?text=Sig'">
-          </div>`;
-      });
     }
 
-    const schedContainer = document.getElementById('schedule-container');
-    function renderSchedule() {
-      schedContainer.innerHTML = '';
-      CONFIG.schedule.forEach((item, idx) => {
-        schedContainer.innerHTML += `
-          <div class="day-box ${item.active ? 'active' : ''}" onclick="toggleSchedule(${idx})">
-            <div>${item.day}</div>
-            <div style="margin-top:2px;">${item.status}</div>
-          </div>`;
-      });
+
+    /* 스케줄 클릭 */
+
+    function toggleSchedule(element) {
+
+      element.classList.toggle("active");
+
+      const text = element.children[1];
+
+      if (element.classList.contains("active")) {
+        text.innerText = "방송♥";
+      } else {
+        text.innerText = "휴방";
+      }
+
     }
 
-    function toggleSchedule(idx) {
-      CONFIG.schedule[idx].active = !CONFIG.schedule[idx].active;
-      CONFIG.schedule[idx].status = CONFIG.schedule[idx].active ? "방송♥" : "휴방";
-      renderSchedule();
+
+    /* 이미지 확대 */
+
+    function openModal(src) {
+
+      document.getElementById("modalImg").src = src;
+
+      document.getElementById("imageModal").style.display = "flex";
+
     }
 
-    function scrollToSection(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
-    function openModal(src) { document.getElementById('modalImg').src = src; document.getElementById('imageModal').style.display = 'flex'; }
-
-    renderPage();
   </script>
+
 </body>
 </html>

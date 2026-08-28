@@ -127,13 +127,43 @@
 
     /* ★ 수정: 180px → 220px
        이미지와 글자가 겹치지 않도록 이미지 영역을 실제 이미지 크기와 동일하게 설정 */
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: 20px;
-      align-items: center;
-      width: 100%;
-    }
+   .profile-grid {
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+  gap: 25px;
+}
+
+.profile-grid > .profile-img-box {
+  flex: 0 0 220px !important;
+  width: 220px !important;
+  height: 220px !important;
+  margin: 0 !important;
+}
+
+.profile-grid > div:last-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: calc(100% - 245px);
+}
+
+@media screen and (max-width: 700px) {
+  .profile-grid {
+    display: flex !important;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .profile-grid > .profile-img-box {
+    flex: none !important;
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .profile-grid > div:last-child {
+    width: 100%;
+  }
+}
 
     .profile-img-box {
       width: 220px;

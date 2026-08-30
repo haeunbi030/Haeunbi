@@ -1,13 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <title>haeunbi Profile</title>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 
   <style>
+
     @font-face {
       font-family: 'JalnanGothic';
       src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonnu_231029@1.1/JalnanGothic.woff2') format('woff2');
@@ -21,22 +29,26 @@
       padding: 0;
     }
 
-    html, body {
+    html,
+    body {
       width: 100%;
       max-width: 100%;
-      background: transparent;
-      font-family: 'JalnanGothic', 'Pretendard', sans-serif;
-      color: #2c3e50;
+      overflow-x: hidden;
     }
 
     body {
+      background: transparent;
+      font-family: 'JalnanGothic', 'Pretendard', sans-serif;
+      color: #2c3e50;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0;
-      min-height: 100vh;
     }
 
+    /* 상단 네비게이션 */
     .navbar {
       display: flex;
       align-items: center;
@@ -69,6 +81,7 @@
       border-color: #a0c8ff;
     }
 
+    /* 전체 컨테이너 */
     .container {
       width: 100%;
       max-width: 100%;
@@ -78,6 +91,7 @@
       padding: 7px;
     }
 
+    /* 카드 */
     .section-card {
       background: rgba(255, 255, 255, 0.98);
       border-radius: 16px;
@@ -87,6 +101,7 @@
       width: 100%;
     }
 
+    /* 제목 */
     .card-title {
       font-family: 'Pretendard', sans-serif;
       font-size: 15px;
@@ -107,25 +122,49 @@
       font-weight: 700;
     }
 
-    .profile-grid {
-      display: flex !important;
-      align-items: center;
-      width: 100%;
-      gap: 25px;
-    }
+    /* =========================
+       프로필
+       ========================= */
 
-    .profile-grid > .profile-img-box {
-      flex: 0 0 220px !important;
-      width: 220px !important;
-      height: 220px !important;
-      margin: 0 !important;
-    }
+    /* ★ 수정: 180px → 220px
+       이미지와 글자가 겹치지 않도록 이미지 영역을 실제 이미지 크기와 동일하게 설정 */
+   .profile-grid {
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+  gap: 25px;
+}
 
-    .profile-grid > div:last-child {
-      flex: 1 1 auto;
-      min-width: 0;
-      width: calc(100% - 245px);
-    }
+.profile-grid > .profile-img-box {
+  flex: 0 0 220px !important;
+  width: 220px !important;
+  height: 220px !important;
+  margin: 0 !important;
+}
+
+.profile-grid > div:last-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: calc(100% - 245px);
+}
+
+@media screen and (max-width: 700px) {
+  .profile-grid {
+    display: flex !important;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .profile-grid > .profile-img-box {
+    flex: none !important;
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .profile-grid > div:last-child {
+    width: 100%;
+  }
+}
 
     .profile-img-box {
       width: 220px;
@@ -175,6 +214,7 @@
       word-break: keep-all;
     }
 
+    /* 정보 테이블 */
     .info-table-2col {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -221,6 +261,7 @@
       white-space: nowrap;
     }
 
+    /* 좋아요 / 싫어요 */
     .pref-box {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -246,6 +287,7 @@
       margin-right: 4px;
     }
 
+    /* 링크 */
     .profile-links {
       display: flex;
       gap: 8px;
@@ -273,6 +315,10 @@
       background: #88b7ff;
       transform: translateY(-1px);
     }
+
+    /* =========================
+       팬캐릭터
+       ========================= */
 
     .fan-grid {
       display: grid;
@@ -316,6 +362,10 @@
       font-family: 'Pretendard', sans-serif;
     }
 
+    /* =========================
+       스케줄
+       ========================= */
+
     .schedule-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -340,6 +390,10 @@
       font-weight: bold;
       border-color: #88b7ff;
     }
+
+    /* =========================
+       시그니처풍
+       ========================= */
 
     .poster-grid {
       display: grid;
@@ -370,6 +424,7 @@
       display: block;
     }
 
+    /* 이미지 확대 */
     .image-modal {
       display: none;
       position: fixed;
@@ -389,28 +444,29 @@
       border-radius: 14px;
     }
 
+    /* =========================
+       모바일
+       ========================= */
+
     @media screen and (max-width: 700px) {
+
       .section-card {
         padding: 16px;
       }
 
       .profile-grid {
-        display: flex !important;
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 15px;
       }
 
-      .profile-grid > .profile-img-box {
-        flex: none !important;
-        width: 180px !important;
-        height: 180px !important;
+      .profile-img-box {
+        width: 180px;
+        height: 180px;
       }
 
-      .profile-grid > div:last-child {
-        width: 100%;
-      }
-
-      .profile-name, .profile-eng, .profile-bio {
+      .profile-name,
+      .profile-eng,
+      .profile-bio {
         text-align: center;
       }
 
@@ -449,9 +505,14 @@
         font-size: 12px;
       }
     }
+
   </style>
+
 </head>
+
 <body>
+
+  <!-- 상단 네비게이션 -->
 
   <nav class="navbar">
     <button class="nav-btn" onclick="scrollToSection('profile')">프로필</button>
@@ -461,159 +522,348 @@
   </nav>
 
   <div class="container">
-    <section id="profile" class="section-card">
-      <div class="card-title">
-        PROFILE <span>프로필</span>
-      </div>
-      <div class="profile-grid">
-        <div class="profile-img-box">
-          <img id="p-avatar" src="VideoProject6-ezgif.com-video-to-gif-converter.gif" alt="프로필">
-        </div>
-        <div>
-          <div class="profile-header">
-            <div class="profile-name">하은비</div>
-            <div class="profile-eng">Haeunbi</div>
-            <div class="profile-bio">프네아의 하은비🩵 나랑 같이 놀자</div>
-          </div>
-          <div class="info-table-2col">
-            <div class="info-cell">
-              <span class="info-label">생일</span>
-              <span class="info-val">1월 7일</span>
-            </div>
-            <div class="info-cell">
-              <span class="info-label">데뷔</span>
-              <span class="info-val">
-                2026-10-05 <span class="dday-badge" id="p-dday"></span>
-              </span>
-            </div>
-            <div class="info-cell">
-              <span class="info-label">콘텐츠</span>
-              <span class="info-val">저챗 · 종겜 · 롤</span>
-            </div>
-            <div class="info-cell">
-              <span class="info-label">오시마크</span>
-              <span class="info-val">🐰(토끼), 🩵(하늘색 하트)</span>
-            </div>
-            <div class="info-cell">
-              <span class="info-label">MBTI</span>
-              <span class="info-val">INTP P,J반반 대문자TTT</span>
-            </div>
-            <div class="info-cell">
-              <span class="info-label">소속</span>
-              <span class="info-val">프네아</span>
-            </div>
-          </div>
-          <div class="pref-box">
-            <div class="pref-item">
-              <span>❤️LIKE:</span> 게임(잘 못함), 술(잘 못함), 귀여운거, 빵, 아아, 괴담
-            </div>
-            <div class="pref-item">
-              <span>❌DISLIKE:</span> 외로움, 추움, 매운 음식, 무례한 사람
-            </div>
-          </div>
-          <div class="profile-links">
-            <a href="https://www.sooplive.com/station/haeunbi" target="_blank" class="link-btn">🔗 SOOP 방송국</a>
-            <a href="https://x.com/Fnea_eunbi" target="_blank" class="link-btn">🔗 트위터 (X)</a>
-            <a href="https://www.songstudio.live/songbook/platform/@하은비" target="_blank" class="link-btn">🔗 노래책</a>
-            <a href="https://weflab.com/user/lOPU2suSlWBsZG4" target="_blank" class="link-btn">🔗 룰렛 확률표</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section id="character" class="section-card">
-      <div class="card-title">
-        FAN CHARACTER <span>팬캐릭터</span>
-      </div>
-      <div class="fan-grid">
-        <div class="char-img-box">
-          <img src="비비 앞뒤.png" alt="팬캐릭터">
-        </div>
-        <div>
-          <h3 style="font-size:20px; margin-bottom:6px; color:#508bf0; font-weight:800;">비비 (BIBI)</h3>
-          <div class="char-desc-box">은비가 매일 안고자는 보들보들한 토끼인형🩵 목의 스카프가 포인트!</div>
-          <div class="fixed-nick">고정닉: ꒰ᏼᏼ꒱닉네임</div>
-        </div>
-      </div>
-    </section>
+<!-- =========================
+     1. 프로필
+     ========================= -->
 
-    <section id="schedule" class="section-card">
-      <div class="card-title">
-        SCHEDULE <span>이번주 스케줄</span>
-      </div>
-      <div class="schedule-grid">
-        <div class="day-box active" onclick="toggleSchedule(this)">
-          <div>월</div><div style="margin-top:2px;">방송♥</div>
-        </div>
-        <div class="day-box" onclick="toggleSchedule(this)">
-          <div>화</div><div style="margin-top:2px;">휴방</div>
-        </div>
-        <div class="day-box active" onclick="toggleSchedule(this)">
-          <div>수</div><div style="margin-top:2px;">방송♥</div>
-        </div>
-        <div class="day-box active" onclick="toggleSchedule(this)">
-          <div>목</div><div style="margin-top:2px;">방송♥</div>
-        </div>
-        <div class="day-box active" onclick="toggleSchedule(this)">
-          <div>금</div><div style="margin-top:2px;">방송♥</div>
-        </div>
-        <div class="day-box active" onclick="toggleSchedule(this)">
-          <div>토</div><div style="margin-top:2px;">방송♥</div>
-        </div>
-        <div class="day-box active" onclick="toggleSchedule(this)">
-          <div>일</div><div style="margin-top:2px;">방송♥</div>
-        </div>
-      </div>
-    </section>
+<section id="profile" class="section-card">
 
-    <section id="sigballoon" class="section-card">
-      <div class="card-title">
-        SIGNATURE BALLOON <span>시그니처풍</span>
-      </div>
-      <div class="poster-grid">
-        <div class="poster-card" onclick="openModal('122.png')"><img src="122.png" alt="시그니처풍"></div>
-        <div class="poster-card" onclick="openModal('122.png')"><img src="122.png" alt="시그니처풍"></div>
-        <div class="poster-card" onclick="openModal('122.png')"><img src="122.png" alt="시그니처풍"></div>
-        <div class="poster-card" onclick="openModal('122.png')"><img src="122.png" alt="시그니처풍"></div>
-        <div class="poster-card" onclick="openModal('sig5.png')"><img src="sig5.png" alt="시그니처풍"></div>
-        <div class="poster-card" onclick="openModal('sig6.png')"><img src="sig6.png" alt="시그니처풍"></div>
-      </div>
-    </section>
+  <div class="card-title">
+    PROFILE
+    <span>프로필</span>
   </div>
 
-  <div class="image-modal" id="imageModal" onclick="this.style.display='none'">
-    <img class="modal-content" id="modalImg" alt="확대 이미지">
+  <div class="profile-grid">
+
+    <div class="profile-img-box">
+      <img
+        id="p-avatar"
+        src="VideoProject6-ezgif.com-video-to-gif-converter.gif"
+        alt="프로필">
+    </div>
+
+    <div>
+
+      <div class="profile-header">
+
+        <div class="profile-name">
+          하은비
+        </div>
+
+        <div class="profile-eng">
+          Haeunbi
+        </div>
+
+        <div class="profile-bio">
+          프네아의 하은비🩵 나랑 같이 놀자
+        </div>
+
+      </div>
+
+      <div class="info-table-2col">
+
+        <div class="info-cell">
+          <span class="info-label">생일</span>
+          <span class="info-val">1월 7일</span>
+        </div>
+
+        <div class="info-cell">
+          <span class="info-label">데뷔</span>
+          <span class="info-val">
+            2026-10-05
+            <span class="dday-badge" id="p-dday"></span>
+          </span>
+        </div>
+
+        <div class="info-cell">
+          <span class="info-label">콘텐츠</span>
+          <span class="info-val">저챗 · 종겜 · 롤</span>
+        </div>
+
+        <div class="info-cell">
+          <span class="info-label">오시마크</span>
+          <span class="info-val">🐰(토끼), 🩵(하늘색 하트)</span>
+        </div>
+
+        <div class="info-cell">
+          <span class="info-label">MBTI</span>
+          <span class="info-val">INTP P,J반반 대문자TTT </span>
+        </div>
+
+        <div class="info-cell">
+          <span class="info-label">소속</span>
+          <span class="info-val">프네아</span>
+        </div>
+
+      </div>
+
+      <div class="pref-box">
+
+        <div class="pref-item">
+          <span>❤️LIKE:</span>
+          게임(잘 못함), 술(잘 못함), 귀여운거, 빵, 아아, 괴담
+        </div>
+
+        <div class="pref-item">
+          <span>❌DISLIKE:</span>
+          외로움, 추움, 매운 음식, 무례한 사람
+        </div>
+
+      </div>
+
+      <div class="profile-links">
+
+        <a
+          href="https://www.sooplive.com/station/haeunbi"
+          target="_blank"
+          class="link-btn">
+          🔗 SOOP 방송국
+        </a>
+
+        <a
+          href="https://x.com/Fnea_eunbi"
+          target="_blank"
+          class="link-btn">
+          🔗 트위터 (X)
+        </a>
+
+        <a
+          href="https://www.songstudio.live/songbook/platform/@하은비"
+          target="_blank"
+          class="link-btn">
+          🔗 노래책
+        </a>
+
+         <a
+          href="https://weflab.com/user/lOPU2suSlWBsZG4"
+          target="_blank"
+          class="link-btn">
+          🔗 룰렛 확률표
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     2. 팬캐릭터
+     ========================= -->
+
+<section id="character" class="section-card">
+
+  <div class="card-title">
+    FAN CHARACTER
+    <span>팬캐릭터</span>
+  </div>
+
+  <div class="fan-grid">
+
+    <div class="char-img-box">
+      <img
+        src="비비 앞뒤.png"
+        alt="팬캐릭터">
+    </div>
+
+    <div>
+
+      <h3 style="
+        font-size:20px;
+        margin-bottom:6px;
+        color:#508bf0;
+        font-weight:800;
+      ">
+        비비 (BIBI)
+      </h3>
+
+      <div class="char-desc-box">
+        은비가 매일 안고자는 보들보들한 토끼인형🩵 목의 스카프가 포인트!
+      </div>
+
+      <div class="fixed-nick">
+        고정닉: ꒰ᏼᏼ꒱닉네임
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     3. 스케줄
+     ========================= -->
+
+<section id="schedule" class="section-card">
+
+  <div class="card-title">
+    SCHEDULE
+    <span>이번주 스케줄</span>
+  </div>
+
+  <div class="schedule-grid">
+
+    <div class="day-box active" onclick="toggleSchedule(this)">
+      <div>월</div>
+      <div style="margin-top:2px;">방송♥</div>
+    </div>
+
+    <div class="day-box" onclick="toggleSchedule(this)">
+      <div>화</div>
+      <div style="margin-top:2px;">휴방</div>
+    </div>
+
+    <div class="day-box active" onclick="toggleSchedule(this)">
+      <div>수</div>
+      <div style="margin-top:2px;">방송♥</div>
+    </div>
+
+    <div class="day-box active" onclick="toggleSchedule(this)">
+      <div>목</div>
+      <div style="margin-top:2px;">방송♥</div>
+    </div>
+
+    <div class="day-box active" onclick="toggleSchedule(this)">
+      <div>금</div>
+      <div style="margin-top:2px;">방송♥</div>
+    </div>
+
+    <div class="day-box active" onclick="toggleSchedule(this)">
+      <div>토</div>
+      <div style="margin-top:2px;">방송♥</div>
+    </div>
+
+    <div class="day-box active" onclick="toggleSchedule(this)">
+      <div>일</div>
+      <div style="margin-top:2px;">방송♥</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     4. 시그니처풍
+     ========================= -->
+
+<section id="sigballoon" class="section-card">
+
+  <div class="card-title">
+    SIGNATURE BALLOON
+    <span>시그니처풍</span>
+  </div>
+
+  <div class="poster-grid">
+
+    <div class="poster-card" onclick="openModal('122.png')">
+      <img src="122.png" alt="시그니처풍">
+    </div>
+
+    <div class="poster-card" onclick="openModal('sig2.png')">
+      <img src="122.png" alt="시그니처풍">
+    </div>
+
+    <div class="poster-card" onclick="openModal('sig3.png')">
+      <img src="122.png" alt="시그니처풍">
+    </div>
+
+    <div class="poster-card" onclick="openModal('sig4.png')">
+      <img src="122.png" alt="시그니처풍">
+    </div>
+
+    <div class="poster-card" onclick="openModal('sig5.png')">
+      <img src="sig5.png" alt="시그니처풍">
+    </div>
+
+    <div class="poster-card" onclick="openModal('sig6.png')">
+      <img src="sig6.png" alt="시그니처풍">
+    </div>
+
+  </div>
+
+</section>
+
+  </div>
+
+  <!-- 이미지 확대 모달 -->
+
+  <div
+    class="image-modal"
+    id="imageModal"
+    onclick="this.style.display='none'">
+
+<img
+  class="modal-content"
+  id="modalImg"
+  alt="확대 이미지">
+
   </div>
 
   <script>
+
+    /* 데뷔 D-Day */
+
     const debut = new Date("2026-10-05");
     const today = new Date();
+
     const diffTime = Math.abs(today - debut);
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
-    const ddayElem = document.getElementById("p-dday");
-    if(ddayElem) ddayElem.innerText = "D+" + diffDays + "일";
+    const diffDays =
+      Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+    document.getElementById("p-dday").innerText =
+      "D+" + diffDays + "일";
+
+
+    /* 메뉴 이동 */
 
     function scrollToSection(id) {
+
       const element = document.getElementById(id);
+
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        element.scrollIntoView({
+          behavior: "smooth"
+        });
       }
+
     }
 
+
+    /* 스케줄 클릭 */
+
     function toggleSchedule(element) {
+
       element.classList.toggle("active");
+
       const text = element.children[1];
+
       if (element.classList.contains("active")) {
         text.innerText = "방송♥";
       } else {
         text.innerText = "휴방";
       }
+
     }
 
+
+    /* 이미지 확대 */
+
     function openModal(src) {
+
       document.getElementById("modalImg").src = src;
+
       document.getElementById("imageModal").style.display = "flex";
+
     }
+
   </script>
+
 </body>
 </html>

@@ -808,17 +808,24 @@
 
   <script>
 
-    /* 데뷔 D-Day */
+  /* 데뷔 D-Day */
 
-    const debut = new Date("2026-10-05");
-    const today = new Date();
+const debut = new Date("2026-10-05T00:00:00");
+const today = new Date();
 
-    const diffTime = Math.abs(today - debut);
-    const diffDays =
-      Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+const diffDays = Math.floor(
+  (today - debut) / (1000 * 60 * 60 * 24)
+);
 
-    document.getElementById("p-dday").innerText =
-      "D+" + diffDays + "일";
+const dday = document.getElementById("p-dday");
+
+if (diffDays < 0) {
+  dday.innerText = "D-" + Math.abs(diffDays) + "일";
+} else if (diffDays === 0) {
+  dday.innerText = "D-DAY";
+} else {
+  dday.innerText = "D+" + diffDays + "일";
+}
 
 
     /* 메뉴 이동 */
